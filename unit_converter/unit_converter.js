@@ -9,10 +9,13 @@ var convertFromNumber;
 var convertTo;
 var b = "";
 function f() {
+<<<<<<< HEAD
 	convertFrom = null;
 	convertFromNumber = null;
 	convertTo = null;
 	b = null;
+=======
+>>>>>>> 8b21f090b099c1fb723a990e03c757ceda561ce7
 	rl.question(q, (answer) => {
 		b = answer;
 		if (b === 'quit') {
@@ -83,7 +86,12 @@ function f() {
 						}else if (isNaN(convertFromNumber)) {
 							console.log("not a number");
 							f();
+<<<<<<< HEAD
 						}else if (Number(convertFromNumber) !== 1) {
+=======
+						}
+						if (Number(convertFromNumber) !== 1) {
+>>>>>>> 8b21f090b099c1fb723a990e03c757ceda561ce7
 							convertFrom.name += "s";
 						}
 						if (convertFromNumber === 'quit') {
