@@ -9,6 +9,10 @@ var convertFromNumber;
 var convertTo;
 var b = "";
 function f() {
+	convertFrom = null;
+	convertFromNumber = null;
+	convertTo = null;
+	b = null;
 	rl.question(q, (answer) => {
 		b = answer;
 		if (b === 'quit') {
@@ -79,8 +83,7 @@ function f() {
 						}else if (isNaN(convertFromNumber)) {
 							console.log("not a number");
 							f();
-						}
-						if (Number(convertFromNumber) !== 1) {
+						}else if (Number(convertFromNumber) !== 1) {
 							convertFrom.name += "s";
 						}
 						if (convertFromNumber === 'quit') {
