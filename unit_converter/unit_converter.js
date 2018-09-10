@@ -74,7 +74,7 @@ function f() {
 						default:
 							console.log("not a unit");
 							f();
-							break;
+							return;
 					}
 					rl.question('How many?', (answer) => {
 						convertFromNumber = answer;
@@ -83,6 +83,7 @@ function f() {
 						}else if (isNaN(convertFromNumber)) {
 							console.log("not a number");
 							f();
+							return;
 						}else if (Number(convertFromNumber) !== 1) {
 							convertFrom.name += "s";
 						}
@@ -127,7 +128,7 @@ function f() {
 								default:
 									console.log("not a unit");
 									f();
-									break;
+									return;
 							}
 							var convertToNumber = (convertTo.value / convertFrom.value) * convertFromNumber;
 							convertToNumber = Number.parseFloat(convertToNumber).toFixed(5);
@@ -142,8 +143,188 @@ function f() {
 				rl.resume();
 				break;
 			case "volume":
-				console.log("You chose Volume!");
-				f();
+				var US_liquid_gallon = {name : "US liquid gallon", value : 1};
+				var US_liquid_quart = {name : "US liquid quart", value : 4};
+				var US_liquid_pint = {name : "US liquid pint", value : 8};
+				var US_legal_cup = {name : "US legal cup", value : 15.7725};
+				var US_fluid_ounce = {name : "US fluid ounce", value : 128};
+				var US_tablespoon = {name : "US tablespoon", value : 256};
+				var US_teaspoon = {name : "US teaspoon", value : 768};
+				var cubic_meter = {name : "cubic meter", value : 0.00378541};
+				var liter = {name : "liter", value : 3.78541};
+				var milliliter = {name : "milliliter", value : 3785.41};
+				var imperial_quart = {name : "imperial quart", value : 3.3307};
+				var imperial_pint = {name : "imperial pint", value : 7.57082};
+				var imperial_cup = {name : "imperial cup", value : 13.3228};
+				var imperial_fluid_ounce = {name : "imperial fluid ounce", value : 133.228};
+				var imperial_tablespoon = {name : "imperial tablespoon", value : 213.165};
+				var imperial_teaspoon = {name : "imperial teaspoon", value : 639.494};
+				var cubic_foot = {name : "cubic foot", value : 0.133681};
+				var cubic_inch = {name : "cubic inch", value : 231};
+				rl.resume();
+				rl.question('What do you want to convert from? US liquid gallon, US liquid quart, US liquid pint, US legal cup, US fluid ounce, US tablespoon, US teaspoon, cubic meter, liter,' + '\n' +
+					'milliliter, imperial quart, imperial pint, imperial cup, imperial fluid ounce, imperial tablespoon, imperial teaspoon, cubic foot, or cubic inch?', (reply) => {
+					switch (reply) {
+						case "US liquid gallon":
+							convertFrom = US_liquid_gallon;
+							break;
+						case "US liquid quart":
+							convertFrom = US_liquid_quart;
+							break;
+						case "US liquid pint":
+							convertFrom = US_liquid_pint;
+							break;
+						case "US legal cup":
+							convertFrom = US_legal_cup;
+							break;
+						case "US fluid ounce":
+							convertFrom = US_fluid_ounce;
+							break;
+						case "US tablespoon":
+							convertFrom = US_tablespoon;
+							break;
+						case "US teaspoon":
+							convertFrom = US_teaspoon;
+							break;
+						case "cubic meter":
+							convertFrom = cubic_meter;
+							break;
+						case "liter":
+							convertFrom = liter;
+							break;
+						case "milliliter":
+							convertFrom = milliliter;
+							break;
+						case "imperial quart":
+							convertFrom = imperial_quart;
+							break;
+						case "imperial pint":
+							convertFrom = imperial_pint;
+							break;
+						case "imperial cup":
+							convertFrom = imperial_cup;
+							break;
+						case "imperial fluid ounce":
+							convertFrom = imperial_fluid_ounce;
+							break;
+						case "imperial tablespoon":
+							convertFrom = imperial_tablespoon;
+							break;
+						case "imperial teaspoon":
+							convertFrom = imperial_teaspoon;
+							break;
+						case "cubic foot":
+							convertFrom = cubic_foot;
+							break;
+						case "cubic inch":
+							convertFrom = cubic_inch;
+							break;
+						case 'quit':
+							process.exit(1);
+							break;
+						default:
+							console.log("not a unit");
+							f();
+							return;
+					}
+					rl.question('How many?', (answer) => {
+						convertFromNumber = answer;
+						if (answer === null || answer.length === 0) {
+							convertFromNumber = 1;
+						}else if (isNaN(convertFromNumber)) {
+							console.log("not a number");
+							f();
+							return;
+						}else if (Number(convertFromNumber) !== 1 && convertFrom === cubic_foot) {
+							cubic_foot.name = "cubic feet";
+						}else if (Number(convertFromNumber) !== 1 && convertFrom === cubic_inch) {
+							cubic_inch.name = "cubic inches";
+						}else if (Number(convertFromNumber) !== 1) {
+							convertFrom.name += "s";
+						}
+						if (convertFromNumber === 'quit') {
+							process.exit(1);
+						}
+						rl.question('What do you want to convert to? US liquid gallon, US liquid quart, US liquid pint, US legal cup, US fluid ounce, US tablespoon, US teaspoon, cubic meter, liter,' + '\n' +
+							'milliliter, imperial quart, imperial pint, imperial cup, imperial fluid ounce, imperial tablespoon, imperial teaspoon, cubic foot, or cubic inch?', (answer) => {
+							switch (answer) {
+								case "US liquid gallon":
+									convertTo = US_liquid_gallon;
+									break;
+								case "US liquid quart":
+									convertTo = US_liquid_quart;
+									break;
+								case "US liquid pint":
+									convertTo = US_liquid_pint;
+									break;
+								case "US legal cup":
+									convertTo = US_legal_cup;
+									break;
+								case "US fluid ounce":
+									convertTo = US_fluid_ounce;
+									break;
+								case "US tablespoon":
+									convertTo = US_tablespoon;
+									break;
+								case "US teaspoon":
+									convertTo = US_teaspoon;
+									break;
+								case "cubic meter":
+									convertTo = cubic_meter;
+									break;
+								case "liter":
+									convertTo = liter;
+									break;
+								case "milliliter":
+									convertTo = milliliter;
+									break;
+								case "imperial quart":
+									convertTo = imperial_quart;
+									break;
+								case "imperial pint":
+									convertTo = imperial_pint;
+									break;
+								case "imperial cup":
+									convertTo = imperial_cup;
+									break;
+								case "imperial fluid ounce":
+									convertTo = imperial_fluid_ounce;
+									break;
+								case "imperial tablespoon":
+									convertTo = imperial_tablespoon;
+									break;
+								case "imperial teaspoon":
+									convertTo = imperial_teaspoon;
+									break;
+								case "cubic foot":
+									convertTo = cubic_foot;
+									break;
+								case "cubic inch":
+									convertTo = cubic_inch;
+									break;
+								case 'quit':
+									process.exit(1);
+									break;
+								default:
+									console.log("not a unit");
+									f();
+									return;
+							}
+							var convertToNumber = (convertTo.value / convertFrom.value) * convertFromNumber;
+							convertToNumber = Number.parseFloat(convertToNumber).toFixed(5);
+							if (Number(convertFromNumber) !== 1 && convertTo === cubic_foot) {
+								cubic_foot.name = "cubic feet";
+							}else if (Number(convertFromNumber) !== 1 && convertTo === cubic_inch) {
+								cubic_inch.name = "cubic inches";
+							}else if (Number(convertToNumber) !== 1) {
+								convertTo.name += "s";
+							}
+							console.log(convertFromNumber + " " + convertFrom.name + " is equal to " + convertToNumber + " " + convertTo.name);
+							f();
+						});
+					});
+				});
+				rl.resume();
 				break;
 			case "area":
 				var sq_km = {name : "square kilometer", value : 1};
@@ -187,19 +368,21 @@ function f() {
 						default:
 							console.log("not a unit");
 							f();
-							break;
+							return;
 					}
 					rl.question('How many?', (answer) => {
 						convertFromNumber = answer;
-						if (Number(convertFromNumber) !== 1) {
+						if (answer === null || answer.length === 0) {
+							convertFromNumber = 1;
+						}else if (isNaN(convertFromNumber)) {
+							console.log("not a number");
+							f();
+							return;
+						}else if (Number(convertFromNumber) !== 1) {
 							convertFrom.name += "s";
 						}
 						if (convertFromNumber === 'quit') {
 							process.exit(1);
-						}
-						if (isNaN(convertFromNumber)) {
-							console.log("not a number");
-							f();
 						}
 						rl.question('What do you want to convert to? square kilometer, square meter, square mile, square yard, square foot, square inch, hectare, or acre?', (answer) => {
 							switch (answer) {
@@ -233,7 +416,7 @@ function f() {
 								default:
 									console.log("not a unit");
 									f();
-									break;
+									return;
 							}
 							var convertToNumber = (convertTo.value / convertFrom.value) * convertFromNumber;
 							convertToNumber = Number.parseFloat(convertToNumber).toFixed(5);
