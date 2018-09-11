@@ -708,7 +708,7 @@ function f() {
 				var petabyte = {name : "petabyte", value : 8000000000000000};
 				var pebibyte = {name : "pebibyte", value : 9007199254740992};
 				rl.resume();
-				rl.question('What do you want to convert from? bit, kilobit, kibibit, megabit, mebibit, gigabit, gibibit, terabit, tebibit, petabit, pebibit, byte, kilobyte, kibibyte, megabyte, mebibyte, gigabyte, gibibyte, terabyte, tebibyte, petabyte, or pebibyte?', (reply) => {
+				rl.question('What do you want to convert from? bit, kilobit, kibibit, megabit, mebibit, gigabit, gibibit, terabit, tebibit, petabit, pebibit,\nbyte, kilobyte, kibibyte, megabyte, mebibyte, gigabyte, gibibyte, terabyte, tebibyte, petabyte, or pebibyte?', (reply) => {
 					switch (reply.trim()) {
 						case "bit":
 							convertFrom = bit;
@@ -798,7 +798,7 @@ function f() {
 						}else if (Number(convertFromNumber) !== 1) {
 							convertFrom.name += "s";
 						}
-						rl.question('What do you want to convert to? bit, kilobit, kibibit, megabit, mebibit, gigabit, gibibit, terabit, tebibit, petabit, pebibit, byte, kilobyte, kibibyte, megabyte, mebibyte, gigabyte, gibibyte, terabyte, tebibyte, petabyte, or pebibyte?', (answer) => {
+						rl.question('What do you want to convert to? bit, kilobit, kibibit, megabit, mebibit, gigabit, gibibit, terabit, tebibit, petabit, pebibit,\nbyte, kilobyte, kibibyte, megabyte, mebibyte, gigabyte, gibibyte, terabyte, tebibyte, petabyte, or pebibyte?', (answer) => {
 							switch (answer.trim()) {
 								case "bit":
 									convertTo = bit;
