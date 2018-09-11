@@ -21,8 +21,137 @@ function f() {
 		rl.pause();
 		switch (b) {
 			case "length":
-				console.log("You chose Length!");
-				f();
+				var kilometer = {name : "kilometer", value : 1};
+				var meter = {name : "meter", value : 1000};
+				var centimeter = {name : "centimeter", value : 100000};
+				var millimeter = {name : "millimeter", value : 1000000};
+				var micrometer = {name : "micrometer", value : 1000000000};
+				var nanometer = {name : "nanometer", value : 1000000000000};
+				var mile = {name : "mile", value : 0.621371};
+				var yard = {name : "yard", value : 1093.61};
+				var foot = {name : "foot", value : 3280.84};
+				var inch = {name : "inch", value : 39370.1};
+				var nautical_mile = {name : "nautical mile", value : 0.539957};
+				rl.resume();
+				rl.question('What do you want to convert from? kilometer, meter, centimeter, millimeter, micrometer, nanometer, mile, yard, foot, inch, or nautical mile?', (reply) => {
+					switch (reply) {
+						case "kilometer":
+							convertFrom = kilometer;
+							break;
+						case "meter":
+							convertFrom = meter;
+							break;
+						case "centimeter":
+							convertFrom = centimeter;
+							break;
+						case "millimeter":
+							convertFrom = millimeter;
+							break;
+						case "micrometer":
+							convertFrom = micrometer;
+							break;
+						case "nanometer":
+							convertFrom = nanometer;
+							break;
+						case "mile":
+							convertFrom = mile;
+							break;
+						case "yard":
+							convertFrom = yard;
+							break;
+						case "foot":
+							convertFrom = foot;
+							break;
+						case "inch":
+							convertFrom = inch;
+							break;
+						case "nautical mile":
+							convertFrom = nautical_mile;
+							break;
+						case 'quit':
+							process.exit(1);
+							break;
+						default:
+							console.log("not a unit");
+							f();
+							return;
+					}
+					rl.question('How many?', (answer) => {
+						convertFromNumber = answer;
+						if (answer === null || answer.length === 0) {
+							convertFromNumber = 1;
+						}else if (isNaN(convertFromNumber)) {
+							console.log("not a number");
+							f();
+							return;
+						}else if (Number(convertFromNumber) !== 1 && convertFrom === foot) {
+							foot.name = "feet";
+						}else if (Number(convertFromNumber) !== 1 && convertFrom === inch) {
+							inch.name = "inches";
+						}else if (Number(convertFromNumber) !== 1) {
+							convertFrom.name += "s";
+						}
+						if (convertFromNumber === 'quit') {
+							process.exit(1);
+						}
+						rl.question('What do you want to convert to? kilometer, meter, centimeter, millimeter, micrometer, nanometer, mile, yard, foot, inch, or nautical mile?', (answer) => {
+							switch (answer) {
+								case "kilometer":
+									convertTo = kilometer;
+									break;
+								case "meter":
+									convertTo = meter;
+									break;
+								case "centimeter":
+									convertTo = centimeter;
+									break;
+								case "millimeter":
+									convertTo = millimeter;
+									break;
+								case "micrometer":
+									convertTo = micrometer;
+									break;
+								case "nanometer":
+									convertTo = nanometer;
+									break;
+								case "mile":
+									convertTo = mile;
+									break;
+								case "yard":
+									convertTo = yard;
+									break;
+								case "foot":
+									convertTo = foot;
+									break;
+								case "inch":
+									convertTo = inch;
+									break;
+								case "nautical mile":
+									convertTo = nautical_mile;
+									break;
+								case 'quit':
+									process.exit(1);
+									break;
+								default:
+									console.log("not a unit");
+									f();
+									return;
+							}
+							var convertToNumber = (convertTo.value / convertFrom.value) * convertFromNumber;
+							convertToNumber = Number.parseFloat(convertToNumber).toFixed(5);
+							if (Number(convertFromNumber) !== 1 && convertTo === foot) {
+								foot.name = "feet";
+							}else if (Number(convertFromNumber) !== 1 && convertTo === inch) {
+								inch.name = "inches";
+							}else if (Number(convertToNumber) !== 1) {
+								convertTo.name += "s";
+							}
+							console.log(convertFromNumber + " " + convertFrom.name + " is equal to " + convertToNumber + " " + convertTo.name);
+							f();
+						});
+					});
+				});
+				rl.resume();
 				break;
 			case "mass":
 				var metric_ton = {name : "metric ton", value : 1};
