@@ -685,8 +685,206 @@ function f() {
 				rl.resume();
 				break;
 			case "digital storage":
-				console.log("You chose Digital Storage!");
-				f();
+				var bit = {name : "bit", value : 1};
+				var kilobit = {name : "kilobit", value : 1000};
+				var kibibit = {name : "kibibit", value : 1024};
+				var megabit = {name : "megabit", value : 1000000};
+				var mebibit = {name : "mebibit", value : 1048576};
+				var gigabit = {name : "gigabit", value : 1000000000};
+				var gibibit = {name : "gibibit", value : 1073741824};
+				var terabit = {name : "terabit", value : 1000000000000};
+				var tebibit = {name : "tebibit", value : 1099511627776};
+				var petabit = {name : "petabit", value : 1000000000000000};
+				var pebibit = {name : "pebibit", value : 1125899906842624};
+				var byte = {name : "byte", value : 8};
+				var kilobyte = {name : "kilobyte", value : 8000};
+				var kibibyte = {name : "kibibyte", value : 8192};
+				var megabyte = {name : "megabyte", value : 8000000};
+				var mebibyte = {name : "mebibyte", value : 8388608};
+				var gigabyte = {name : "gigabyte", value : 8000000000};
+				var gibibyte = {name : "gibibyte", value : 8589934592};
+				var terabyte = {name : "terabyte", value : 8000000000000};
+				var tebibyte = {name : "tebibyte", value : 8796093022208};
+				var petabyte = {name : "petabyte", value : 8000000000000000};
+				var pebibyte = {name : "pebibyte", value : 9007199254740992};
+				rl.resume();
+				rl.question('What do you want to convert from? bit, kilobit, kibibit, megabit, mebibit, gigabit, gibibit, terabit, tebibit, petabit, pebibit, byte, kilobyte, kibibyte, megabyte, mebibyte, gigabyte, gibibyte, terabyte, tebibyte, petabyte, or pebibyte?', (reply) => {
+					switch (reply.trim()) {
+						case "bit":
+							convertFrom = bit;
+							break;
+						case "kilobit":
+							convertFrom = kilobit;
+							break;
+						case "kibibit":
+							convertFrom = kibibit;
+							break;
+						case "megabit":
+							convertFrom = megabit;
+							break;
+						case "mebibit":
+							convertFrom = mebibit;
+							break;
+						case "gigabit":
+							convertFrom = gigabit;
+							break;
+						case "gibibit":
+							convertFrom = gibibit;
+							break;
+						case "terabit":
+							convertFrom = terabit;
+							break;
+						case "tebibit":
+							convertFrom = tebibit;
+							break;
+						case "petabit":
+							convertFrom = petabit;
+							break;
+						case "pebibit":
+							convertFrom = pebibit;
+							break;
+						case "byte":
+							convertFrom = byte;
+							break;
+						case "kilobyte":
+							convertFrom = kilobyte;
+							break;
+						case "kibibyte":
+							convertFrom = kibibyte;
+							break;
+						case "megabyte":
+							convertFrom = megabyte;
+							break;
+						case "mebibyte":
+							convertFrom = mebibyte;
+							break;
+						case "gigabyte":
+							convertFrom = gigabyte;
+							break;
+						case "gibibyte":
+							convertFrom = gibibyte;
+							break;
+						case "terabyte":
+							convertFrom = terabyte;
+							break;
+						case "tebibyte":
+							convertFrom = tebibyte;
+							break;
+						case "petabyte":
+							convertFrom = petabyte;
+							break;
+						case "pebibyte":
+							convertFrom = pebibyte;
+							break;
+						case 'quit':
+							process.exit(1);
+							break;
+						default:
+							console.log("not a unit");
+							f();
+							return;
+					}
+					rl.question('How many?', (answer) => {
+						convertFromNumber = answer;
+						if (convertFromNumber === 'quit') {
+							process.exit(1);
+						}
+						if (answer === null || answer.length === 0) {
+							convertFromNumber = 1;
+						}else if (isNaN(convertFromNumber)) {
+							console.log("not a number");
+							f();
+							return;
+						}else if (Number(convertFromNumber) !== 1) {
+							convertFrom.name += "s";
+						}
+						rl.question('What do you want to convert to? bit, kilobit, kibibit, megabit, mebibit, gigabit, gibibit, terabit, tebibit, petabit, pebibit, byte, kilobyte, kibibyte, megabyte, mebibyte, gigabyte, gibibyte, terabyte, tebibyte, petabyte, or pebibyte?', (answer) => {
+							switch (answer.trim()) {
+								case "bit":
+									convertTo = bit;
+									break;
+								case "kilobit":
+									convertTo = kilobit;
+									break;
+								case "kibibit":
+									convertTo = kibibit;
+									break;
+								case "megabit":
+									convertTo = megabit;
+									break;
+								case "mebibit":
+									convertTo = mebibit;
+									break;
+								case "gigabit":
+									convertTo = gigabit;
+									break;
+								case "gibibit":
+									convertTo = gibibit;
+									break;
+								case "terabit":
+									convertTo = terabit;
+									break;
+								case "tebibit":
+									convertTo = tebibit;
+									break;
+								case "petabit":
+									convertTo = petabit;
+									break;
+								case "pebibit":
+									convertTo = pebibit;
+									break;
+								case "byte":
+									convertTo = byte;
+									break;
+								case "kilobyte":
+									convertTo = kilobyte;
+									break;
+								case "kibibyte":
+									convertTo = kibibyte;
+									break;
+								case "megabyte":
+									convertTo = megabyte;
+									break;
+								case "mebibyte":
+									convertTo = mebibyte;
+									break;
+								case "gigabyte":
+									convertTo = gigabyte;
+									break;
+								case "gibibyte":
+									convertTo = gibibyte;
+									break;
+								case "terabyte":
+									convertTo = terabyte;
+									break;
+								case "tebibyte":
+									convertTo = tebibyte;
+									break;
+								case "petabyte":
+									convertTo = petabyte;
+									break;
+								case "pebibyte":
+									convertTo = pebibyte;
+									break;
+								case 'quit':
+									process.exit(1);
+									break;
+								default:
+									console.log("not a unit");
+									f();
+									return;
+							}
+							var convertToNumber = (convertFrom.value / convertTo.value) * convertFromNumber;
+							convertToNumber = Number.parseFloat(convertToNumber).toFixed(5);
+							if (Number(convertToNumber) !== 1) {
+								convertTo.name += "s";
+							}
+							console.log(convertFromNumber + " " + convertFrom.name + " is equal to " + convertToNumber + " " + convertTo.name);
+							f();
+						});
+					});
+				});
+				rl.resume();
 				break;
 			default:
 				console.log("cannot convert from that");
