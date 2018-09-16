@@ -1,4 +1,4 @@
-var q = "Which would you like to convert(length, mass, volume, area, or digital storage?)";
+var q = "Do you want to convert(length, mass, volume, area, digital storage)? Press Q/q to quit?)";
 const readline = require('readline');
 const rl = readline.createInterface({
     input: process.stdin,
@@ -14,12 +14,12 @@ function f() {
 	convertTo = null;
 	b = null;
 	rl.question(q, (answer) => {
-		b = answer;
-		if (b.trim() === 'quit') {
-			process.exit(1);
+		b = answer.trim().toLowerCase();
+		if (b.startsWith('q')) {
+			console.log("goodbye");
+			process.exit(0);
 		}
-		rl.pause();
-		switch (b.trim()) {
+		switch (b) {
 			case "length":
 				var kilometer = {name : "kilometer", value : 1};
 				var hectometer = {name : "hectometer", value : 10};
@@ -35,7 +35,7 @@ function f() {
 				var foot = {name : "foot", value : 3280.84};
 				var inch = {name : "inch", value : 39370.1};
 				var nautical_mile = {name : "nautical mile", value : 0.539957};
-				rl.resume();
+				// rl.resume();
 				rl.question('What do you want to convert from? kilometer, hectometer, decameter, meter, decimeter, centimeter, millimeter, micrometer, nanometer,\nmile, yard, foot, inch, or nautical mile?', (reply) => {
 					switch (reply.trim()) {
 						case "kilometer":
