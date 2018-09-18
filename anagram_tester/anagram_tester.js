@@ -10,6 +10,7 @@ if (str1.length !== str2.length) {
 }
 var str1a = [];
 var str2a = [];
+//puts stuff in str1a and str2a
 for (var i = 0; i < str1.length; i++) {
 	str1a.push(str1.charAt(i));
 }
