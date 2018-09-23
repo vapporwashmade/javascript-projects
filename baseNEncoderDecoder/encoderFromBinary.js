@@ -3,7 +3,7 @@ const rl = readline.createInterface({
 	input: process.stdin,
 	output: process.stdout
 });
-var convertFromNum = 10100100001;
+var convertFromNum;
 var remainder = null;
 function toDecimal(number) {
 	var inDecimal = 0;
@@ -241,3 +241,35 @@ function toB32(number) {
 	inB32 = remainder + inB32;
 	return inB32;
 }
+function f() {
+	rl.question('What number do you want to convert?', (reply) => {
+		reply = reply.trim();
+		for (var i = 0; i < reply.length; i++)  {
+			if (reply.charAt(i) > 1 || isNaN(Number(reply.charAt(i)))) {
+				console.log("not a binary number");
+				f();
+				return;
+			}
+		}
+		convertFromNum = reply;
+		rl.question('What base do you want to convert to? 8, 10, 16, or 32?', (reply) => {
+			reply = reply.trim();
+			if (reply === 'octal' || reply === '8') {
+				console.log(toOctal(convertFromNum));
+				process.exit(0);
+			}else if (reply === 'decimal' || reply === '10') {
+				console.log(toDecimal(convertFromNum));
+				process.exit(0);
+			}else if (reply.startsWith('h') || reply === '16') {
+				console.log(toHex(convertFromNum));
+				process.exit(0);
+			}else if (reply === '32') {
+				console.log(toB32(convertFromNum));
+				process.exit(0);
+			}
+			console.log("cannot convert to that base");
+			f();
+		});
+	});
+}
+f();
