@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Convert Units</title>
 </head>
 <body>
-$END$
+    <select title="unit" id="findUnits" onclick="findUnit()">
+        <option value="don't select" selected>Select from Dropdown...</option>
+        <option value="length">Length</option>
+        <option value="mass">Mass</option>
+        <option value="volume">Volume</option>
+        <option value="area">Area</option>
+        <option value="digital storage">Digital storage</option>
+    </select>
+    <br>
+    <div id="show/hide" style="display: none;"><input title="how many" id="quantity">
+    <select title="convertFrom" id="convertFrom">
+        <option value="kilometer">Kilometer</option>
+        <option value="hectometer">Hectometer</option>
+        <option value="decameter">Decameter</option>
+        <option value="meter">Meter</option>
+        <option value="decimeter">Decimeter</option>
+        <option value="centimeter">Centimeter</option>
+        <option value="millimeter">Millimeter</option>
+    </select></div>
+    <script src="unit_converter.js"></script>
 </body>
 </html>
