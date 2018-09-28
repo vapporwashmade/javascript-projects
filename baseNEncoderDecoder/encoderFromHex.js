@@ -5,26 +5,32 @@ const rl = readline.createInterface({
 });
 var convertFromNum;
 var remainder = null;
-function toOctal(number) {
-	var inOctal = "";
-	var num = number;
-	if (number < 8) {
-		return number;
+function toDecimal(number) {
+	var inDecimal = 0;
+	var power = 0;
+	for (var i = 0; i < number.toString().length; i++) {
+		if (number.toString().charAt(number.toString().length - (i+1)) === "A") {
+			inDecimal += 10 * (16 ** power);
+		}else if (number.toString().charAt(number.toString().length - (i+1)) === "B") {
+			inDecimal += 11 * (16 ** power);
+		}else if (number.toString().charAt(number.toString().length - (i+1)) === "C") {
+			inDecimal += 12 * (16 ** power);
+		}else if (number.toString().charAt(number.toString().length - (i+1)) === "D") {
+			inDecimal += 13 * (16 ** power);
+		}else if (number.toString().charAt(number.toString().length - (i+1)) === "E") {
+			inDecimal += 14 * (16 ** power);
+		}else if (number.toString().charAt(number.toString().length - (i+1)) === "F") {
+			inDecimal += 15 * (16 ** power);
+		}else {
+			inDecimal += Number(number.toString().charAt(number.toString().length - (i+1))) * (16 ** power);
+		}
+		power++;
 	}
-	while (Math.floor(num/8) !== 0) {
-		remainder = num%8;
-		remainder.toString();
-		inOctal = remainder + inOctal;
-		num = Math.floor(num/8);
-	}
-	remainder = num%8;
-	remainder.toString();
-	inOctal = remainder + inOctal;
-	return inOctal;
+	return inDecimal;
 }
 function toBinary(number) {
 	var inBinary = "";
-	var num = number;
+	var num = toDecimal(number);
 	if (number < 2) {
 		return number;
 	}
@@ -39,66 +45,26 @@ function toBinary(number) {
 	inBinary = remainder + inBinary;
 	return inBinary;
 }
-function toHex(number) {
-	var inHex = "";
-	var num = number;
-	if (number < 10) {
+function toOctal(number) {
+	var inOctal = "";
+	var num = toDecimal(number);
+	if (number < 8) {
 		return number;
-	}else if (number === 10) {
-		return "A";
-	}else if (number === 11) {
-		return "B";
-	}else if (number === 12) {
-		return "C";
-	}else if (number === 13) {
-		return "D";
-	}else if (number === 14) {
-		return "E";
-	}else if (number === 15) {
-		return "F";
 	}
-	while (Math.floor(num/16) !== 0) {
-		remainder = num%16;
-		if (remainder === 10) {
-			remainder = "A";
-		}else if (remainder === 11) {
-			remainder = "B";
-		}else if (remainder === 12) {
-			remainder = "C";
-		}else if (remainder === 13) {
-			remainder = "D";
-		}else if (remainder === 14) {
-			remainder = "E";
-		}else if (remainder === 15) {
-			remainder = "F";
-		}else {
-			remainder.toString();
-		}
-		inHex = remainder + inHex;
-		num = Math.floor(num/16);
-	}
-	remainder = num%16;
-	if (remainder === 10) {
-		remainder = "A";
-	}else if (remainder === 11) {
-		remainder = "B";
-	}else if (remainder === 12) {
-		remainder = "C";
-	}else if (remainder === 13) {
-		remainder = "D";
-	}else if (remainder === 14) {
-		remainder = "E";
-	}else if (remainder === 15) {
-		remainder = "F";
-	}else {
+	while (Math.floor(num/8) !== 0) {
+		remainder = num%8;
 		remainder.toString();
+		inOctal = remainder + inOctal;
+		num = Math.floor(num/8);
 	}
-	inHex = remainder + inHex;
-	return inHex.toLowerCase();
+	remainder = num%8;
+	remainder.toString();
+	inOctal = remainder + inOctal;
+	return inOctal;
 }
 function toB32(number) {
 	var inB32 = "";
-	var num = number;
+	var num = toDecimal(number);
 	if (number < 10) {
 		return number;
 	}else if (number === 10) {
@@ -251,14 +217,16 @@ function toB32(number) {
 }
 function f() {
 	rl.question('What number do you want to convert?', (reply) => {
-		reply = reply.trim();
-		convertFromNum = Number(reply);
-		if (isNaN(convertFromNum)) {
-			console.log("not a number");
-			f();
-			return;
+		reply = reply.trim().toLowerCase();
+		for (var i = 0; i < reply.length; i++)  {
+			if (isNaN(Number(reply.charAt(i))) && reply.charAt(i) !== "a" && reply.charAt(i) !== "b" && reply.charAt(i) !== "c" && reply.charAt(i) !== "d" && reply.charAt(i) !== "e" && reply.charAt(i) !== "f") {
+				console.log("not a hexadecimal number");
+				f();
+				return;
+			}
 		}
-		rl.question('What base do you want to convert to? 2, 8, 16, or 32?', (reply) => {
+		convertFromNum = reply;
+		rl.question('What base do you want to convert to? 2, 8, 10, or 32?', (reply) => {
 			reply = reply.trim();
 			if (reply === 'binary' || reply === '2') {
 				console.log(toBinary(convertFromNum));
@@ -266,8 +234,8 @@ function f() {
 			}else if (reply === 'octal' || reply === '8') {
 				console.log(toOctal(convertFromNum));
 				process.exit(0);
-			}else if (reply.startsWith('h') || reply === '16') {
-				console.log(toHex(convertFromNum));
+			}else if (reply === 'decimal' || reply === '10') {
+				console.log(toDecimal(convertFromNum));
 				process.exit(0);
 			}else if (reply === '32') {
 				console.log(toB32(convertFromNum));

@@ -86,7 +86,7 @@ function toHex(number) {
 		remainder.toString();
 	}
 	inHex = remainder + inHex;
-	return inHex;
+	return inHex.toLowerCase();
 }
 function toB32(number) {
 	var inB32 = "";
@@ -124,19 +124,19 @@ function toB32(number) {
 	}else if (number === 24) {
 		return "R";
 	}else if (number === 25) {
-		return "S";
-	}else if (number === 26) {
 		return "T";
-	}else if (number === 27) {
+	}else if (number === 26) {
 		return "U";
-	}else if (number === 28) {
+	}else if (number === 27) {
 		return "V";
-	}else if (number === 29) {
+	}else if (number === 28) {
 		return "W";
-	}else if (number === 30) {
+	}else if (number === 29) {
 		return "X";
-	}else if (number === 31) {
+	}else if (number === 30) {
 		return "Y";
+	}else if (number === 31) {
+		return "Z";
 	}
 	while (Math.floor(num/32) !== 0) {
 		remainder = num%32;
@@ -171,19 +171,19 @@ function toB32(number) {
 		}else if (remainder === 24) {
 			remainder = "R";
 		}else if (remainder === 25) {
-			remainder = "S";
-		}else if (remainder === 26) {
 			remainder = "T";
-		}else if (remainder === 27) {
+		}else if (remainder === 26) {
 			remainder = "U";
-		}else if (remainder === 28) {
+		}else if (remainder === 27) {
 			remainder = "V";
-		}else if (remainder === 29) {
+		}else if (remainder === 28) {
 			remainder = "W";
-		}else if (remainder === 30) {
+		}else if (remainder === 29) {
 			remainder = "X";
-		}else if (remainder === 31) {
+		}else if (remainder === 30) {
 			remainder = "Y";
+		}else if (remainder === 31) {
+			remainder = "Z";
 		}else {
 			remainder.toString();
 		}
@@ -222,24 +222,24 @@ function toB32(number) {
 	}else if (remainder === 24) {
 		remainder = "R";
 	}else if (remainder === 25) {
-		remainder = "S";
-	}else if (remainder === 26) {
 		remainder = "T";
-	}else if (remainder === 27) {
+	}else if (remainder === 26) {
 		remainder = "U";
-	}else if (remainder === 28) {
+	}else if (remainder === 27) {
 		remainder = "V";
-	}else if (remainder === 29) {
+	}else if (remainder === 28) {
 		remainder = "W";
-	}else if (remainder === 30) {
+	}else if (remainder === 29) {
 		remainder = "X";
-	}else if (remainder === 31) {
+	}else if (remainder === 30) {
 		remainder = "Y";
+	}else if (remainder === 31) {
+		remainder = "Z";
 	}else {
 		remainder.toString();
 	}
 	inB32 = remainder + inB32;
-	return inB32;
+	return inB32.toLowerCase();
 }
 function f() {
 	rl.question('What number do you want to convert?', (reply) => {
