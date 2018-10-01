@@ -48,9 +48,9 @@ function findUnit() {
 			for (i = 1; i <= 7; i++) {
 				concat = n[i-1];
 				add = i.toString();
-				document.getElementById(add).text = 'Square '+concat+'byte';
+				document.getElementById(add).text = concat+'byte';
 				add += "'";
-				document.getElementById(add).text = 'Square '+concat+'byte';
+				document.getElementById(add).text = concat+'byte';
 			}
 		}
 	}
