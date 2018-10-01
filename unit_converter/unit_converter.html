@@ -14,16 +14,28 @@
         <option value="digital storage">Digital storage</option>
     </select>
     <br>
-    <div id="show/hide" style="display: none;"><input title="how many" id="quantity">
-    <select title="convertFrom" id="convertFrom">
-        <option value="kilometer">Kilometer</option>
-        <option value="hectometer">Hectometer</option>
-        <option value="decameter">Decameter</option>
-        <option value="meter">Meter</option>
-        <option value="decimeter">Decimeter</option>
-        <option value="centimeter">Centimeter</option>
-        <option value="millimeter">Millimeter</option>
+    <div id="show/hide" style="display:none;"><p>Quantity:</p><input title="how many" id="quantity">
+    <p>Convert from:</p><select title="convertFrom" id="convertFrom">
+        <option id="1"></option>
+        <option id="2"></option>
+        <option id="3"></option>
+        <option id="4"></option>
+        <option id="5"></option>
+        <option id="6"></option>
+        <option id="7"></option>
     </select></div>
+    <div id="div2" style="display:none;">
+       <p>Convert to:</p><select title="convertTo" id="convertTo">
+            <option id="1'"></option>
+            <option id="2'"></option>
+            <option id="3'"></option>
+            <option id="4'"></option>
+            <option id="5'"></option>
+            <option id="6'"></option>
+            <option id="7'"></option>
+        </select></div>
+    <div id="convert"><button onclick="organize()">Convert</button></div>
+    <p id="aftertext"></p>
     <script src="unit_converter.js"></script>
 </body>
 </html>
