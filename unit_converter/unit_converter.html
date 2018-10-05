@@ -14,28 +14,20 @@
         <option value="digital storage">Digital storage</option>
     </select>
     <br>
-    <div id="show/hide" style="display:none;"><p>Quantity:</p><input title="how many" id="quantity">
-    <p>Convert from:</p><select title="convertFrom" id="convertFrom">
-        <option id="1"></option>
-        <option id="2"></option>
-        <option id="3"></option>
-        <option id="4"></option>
-        <option id="5"></option>
-        <option id="6"></option>
-        <option id="7"></option>
+    <div id="show/hide" style="display:none;"><p>Quantity:</p><input title="how many" id="quantity" oninput="immediately()">
+    <p>Convert from:</p><select title="convertFrom" id="convertFrom" onclick="immediately()">
     </select></div>
     <div id="div2" style="display:none;">
-       <p>Convert to:</p><select title="convertTo" id="convertTo">
-            <option id="1'"></option>
-            <option id="2'"></option>
-            <option id="3'"></option>
-            <option id="4'"></option>
-            <option id="5'"></option>
-            <option id="6'"></option>
-            <option id="7'"></option>
-        </select></div>
-    <div id="convert"><button onclick="organize()">Convert</button></div>
+       <p>Convert to:</p><select title="convertTo" id="convertTo" onclick="immediately()">
+        </select>
+        <form>
+            <input id="swapconvert?" type="checkbox" title="check">Convert on press of swap?
+            <input id="immediately?" type="checkbox" title="check">Convert immediately?
+        </form>
+        <div id="swap"><button onclick="swap()">Swap &#x1f503</button></div>
+    <div id="convert"><button onclick="organize()">Convert</button></div></div>
     <p id="aftertext"></p>
+    <p id="rounded"></p>
     <script src="unit_converter.js"></script>
 </body>
 </html>
