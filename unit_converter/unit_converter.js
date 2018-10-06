@@ -84,7 +84,10 @@ function findUnit() {
 
 function immediately() {
 	if (document.getElementById('immediately?').checked === true) {
+		document.getElementById('convertButton').disabled = true;
 		organize();
+	} else {
+		document.getElementById('convertButton').disabled = false;
 	}
 }
 

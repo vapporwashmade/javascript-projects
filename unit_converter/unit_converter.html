@@ -22,10 +22,10 @@
         </select>
         <form>
             <input id="swapconvert?" type="checkbox" title="check">Convert on press of swap?
-            <input id="immediately?" type="checkbox" title="check" checked>Convert automatically?
+            <input id="immediately?" type="checkbox" title="check" oninput="immediately()">Convert automatically?
         </form>
         <div id="swap"><button onclick="swap()">Swap &#x1f503</button></div>
-    <div id="convert"><button onclick="organize()">Convert</button></div></div>
+    <div id="convert"><button id="convertButton" onclick="organize()">Convert</button></div></div>
     <p id="aftertext"></p>
     <p id="rounded"></p>
     <script src="unit_converter.js"></script>
