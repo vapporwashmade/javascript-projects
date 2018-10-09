@@ -12,11 +12,17 @@ function reset() {
 	array.length = 0;
 	document.getElementById('aftertext').textContent = '';
 	document.getElementById('reset').textContent = '';
-	it = 0;
 	document.getElementById('yes').style.display = 'none';
 	document.getElementById('no').style.display = 'none';
 	document.getElementById('was i correct').style.display = 'none';
+	p.nextElementSibling.checked = false;
+	p.nextElementSibling.nextElementSibling.checked = false;
+	var num = 'card'+(it+1).toString();
+	document.getElementById(num).style.display = 'none';
+	document.getElementById('card1').style.display = 'block';
+	it = 0;
 }
+
 
 function f() {
 	it++;
@@ -33,6 +39,10 @@ function f() {
 			p.id = num.toString();
 			p.parentElement.children[1].checked = false;
 			p.parentElement.children[3].checked = false;
+			num = 'card'+it.toString();
+			document.getElementById(num).style.display = 'none';
+			num = 'card'+(it+1).toString();
+			document.getElementById(num).style.display = 'block';
 		});
 		$("#questionChanger").fadeIn(700);
 	} else {
