@@ -1,17 +1,14 @@
-var str1 = 'bat';
-var str2 = 'table';
+var str1 = 'table';
+var str2 = 'bat';
 function subsequence(str1, str2) {
 	var subsequence = false;
-	var iterated = 0;
-	for (var i = 0; i < str1.length; i++) {
-		for (var j = 0; j < str2.length; j++) {
-			if (str1.charAt(i) === str2.charAt(j)) {
-				iterated++;
-				i++;
-			}
+	var i = 0;
+	for (var j = 0; j < str2.length; j++) {
+		if (str1.charAt(i) === str2.charAt(j)) {
+			i++;
 		}
 	}
-	if (iterated === str1.length && str2.includes(str1) === false) {
+	if (i === str1.length) {
 		subsequence = true;
 	}
 	return subsequence;
