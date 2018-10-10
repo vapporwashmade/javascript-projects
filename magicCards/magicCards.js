@@ -18,6 +18,7 @@ function reset() {
 	p.nextElementSibling.checked = false;
 	p.nextElementSibling.nextElementSibling.checked = false;
 	var num = 'card'+(it+1).toString();
+	console.log(num);
 	document.getElementById(num).style.display = 'none';
 	document.getElementById('card1').style.display = 'block';
 	it = 0;
@@ -55,6 +56,7 @@ function add() {
 }
 function callit() {
 	document.getElementById('correct').textContent = 'Number of times I guessed your number correctly: ' + correct;
+	it--;
 	reset();
 }
 function findNum(array) {
