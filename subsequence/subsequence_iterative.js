@@ -1,9 +1,9 @@
-var str1 = 'this';
-var str2 = 'it is horribly said';
+var str1 = "halloween";
+var str2 = "all hallow's eve";
 function subsequence(str1, str2) {
 	var subsequence = false;
 	var i = 0;
-	for (var j = 0; i < str1.length; j++) {
+	for (var j = 0; j < str2.length && i < str1.length; j++) {
 		if (str1.charAt(i) === str2.charAt(j)) {
 			i++;
 		}
