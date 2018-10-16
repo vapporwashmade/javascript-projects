@@ -210,6 +210,8 @@ function swap() {
 	document.getElementById('convertFrom').selectedIndex = tempIndex;
 	if (document.getElementById('swapconvert?').checked === true) {
 		organize();
+	} else if (document.getElementById('immediately?').checked === true) {
+		organize();
 	}
 }
 
@@ -229,7 +231,6 @@ function convert(prop, from, to, quantity) {
 		fromValue = toDelete;
 	}
 	var convertToNumber = toValue/fromValue*quantity;
-	convertToNumber = convertToNumber.toFixed(3);
 	convertToNumber = Number.parseFloat(convertToNumber);
 	if (convertToNumber !== 1) {
 		to += 's';
