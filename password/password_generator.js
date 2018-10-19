@@ -1,5 +1,7 @@
 console.time('x');
 var n = 2;
+//checks whether a string passes the restriction
+//returns true or false
 function checker(str) {
 	var hasNumber = false;
 	var hasLowerCase = false;
@@ -15,6 +17,8 @@ function checker(str) {
 	}
 	return false;
 }
+// generates all passwords for n digits
+// returns an array containing all of them
 function generator(n) {
 	if (n < 2) {
 		return 'Error: too short';
