@@ -1,4 +1,6 @@
 let num = 10;
+//takes a number to how many fibonacci numbers you want
+//returns a function that returns your fibonacci
 function f(upto) {
 	var a = [1,1];
 	return function x() {
@@ -8,5 +10,5 @@ function f(upto) {
 		}
 	}
 }
-var x = f(num);
-console.log(x());
+var l = f(num);
+console.log(l());
