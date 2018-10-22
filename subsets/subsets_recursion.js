@@ -1,5 +1,5 @@
 // takes in an array a
-// returns an array with all the subsets and the length
+// returns an array with all the subsets and prints the number of subsets
 function f(a) {
 	var subsets = [];
 	// base case
@@ -8,18 +8,18 @@ function f(a) {
 		return subsets;
 	}
 	// recursive case
-	var lElement = a.pop();
+	var last = a.pop();
 	var presubs = f(a);
 	for (var i = 0; i < presubs.length; i++) {
 		subsets.push(presubs[i].slice());
 	}
 	for (i = 0; i < presubs.length; i++) {
-		presubs[i].push(lElement);
+		presubs[i].push(last);
 		subsets.push(presubs[i]);
 	}
 	return subsets;
 }
-var a = [1,2,3,4,5,6,7];
+var a = [1];
 var n = a.length;
 console.log(f(a));
 console.log('number of subsets: '+ (2 ** n));

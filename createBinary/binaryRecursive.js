@@ -13,5 +13,4 @@ function f(n) {
 	}
 	return binArray;
 }
-
 console.log(f(8));
