@@ -1,1 +1,13 @@
 These are my Javascript Projects. Started on 8/28/18.
+
+The structure is simple:
+--- root
+      --- algods (contains algorithms and data structures (e.g. linked list, stack, queue etc.))
+      --- apps (contains small JS apps driven by HTML)
+      --- problems (any and all problems of interest using techniques like iteration, recursion, divide and conquer etc.)
+      --- misc (anything else)
+ 
+The programs should be runnable all the time. Automated test for the programs will be soon written. Please give them a try and create issues if you like!
+
+Thank you!
+     
