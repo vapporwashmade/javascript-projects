@@ -1,5 +1,6 @@
 // takes in a number and returns an array
 // creates binary combinations for that number
+console.time('x');
 function f(n) {
 	// base case
 	if (n === 1) {
@@ -14,3 +15,4 @@ function f(n) {
 	return binArray;
 }
 console.log(f(8));
+console.timeEnd('x');
