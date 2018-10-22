@@ -1,5 +1,6 @@
-// takes in a number and returns an array
-// creates binary combinations for that number
+// takes in a number n and returns an array of binary strings of length n
+// for example, if n=2, then it would return ['00', '01', '10', '11']
+// this is a recursive function
 console.time('x');
 function f(n) {
 	// base case
@@ -14,5 +15,5 @@ function f(n) {
 	}
 	return binArray;
 }
-console.log(f(8));
+console.log(f(4));
 console.timeEnd('x');

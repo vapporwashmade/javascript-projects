@@ -1,5 +1,8 @@
 var str1 = "hac";
 var str2 = "cathartic";
+// takes in two strings and checks if the first is a subsequence of the second
+// returns a boolean: true or false
+// recursive function
 function f(str1, str2) {
 	// BASE CASE
 	if (str1.length === 0) {

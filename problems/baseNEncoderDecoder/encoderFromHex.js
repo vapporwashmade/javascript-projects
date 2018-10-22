@@ -5,6 +5,7 @@ const rl = readline.createInterface({
 });
 var convertFromNum;
 var remainder = null;
+// converts a number to decimal
 function toDecimal(number) {
 	var inDecimal = 0;
 	var power = 0;
@@ -28,6 +29,7 @@ function toDecimal(number) {
 	}
 	return inDecimal;
 }
+// converts a number to binary
 function toBinary(number) {
 	var inBinary = "";
 	var num = toDecimal(number);
@@ -45,6 +47,7 @@ function toBinary(number) {
 	inBinary = remainder + inBinary;
 	return inBinary;
 }
+// converts a number to octal
 function toOctal(number) {
 	var inOctal = "";
 	var num = toDecimal(number);
@@ -62,6 +65,7 @@ function toOctal(number) {
 	inOctal = remainder + inOctal;
 	return inOctal;
 }
+// converts to base 32
 function toB32(number) {
 	var inB32 = "";
 	var num = toDecimal(number);
@@ -215,6 +219,7 @@ function toB32(number) {
 	inB32 = remainder + inB32;
 	return inB32.toLowerCase();
 }
+// checks what you want to convert to
 function f() {
 	rl.question('What number do you want to convert?', (reply) => {
 		reply = reply.trim().toLowerCase();

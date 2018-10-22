@@ -2,6 +2,8 @@ var anagrams = true;
 var str1 = "test";
 var str2 = "example";
 // should print false
+// checks if two strings are anagrams
+// sorts the arrays of the two arrays
 str1 = str1.trim();
 str2 = str2.trim();
 if (str1.length !== str2.length) {

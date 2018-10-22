@@ -1,5 +1,6 @@
-// takes in a number and returns an array
-// creates binary combinations for that number
+// takes in a number n and returns an array of binary strings of length n
+// for example, if n=2, then it would return ['00', '01', '10', '11']
+// this is an iterative function
 console.time('x');
 function f(n) {
 	var binArray = ['0','1'];

@@ -1,5 +1,8 @@
 var str1 = "halloween";
 var str2 = "all hallow's eve";
+// takes in two strings and checks if the first is a subsequence of the second
+// returns a boolean: true or false
+// iterative function
 function subsequence(str1, str2) {
 	var subsequence = false;
 	var i = 0;

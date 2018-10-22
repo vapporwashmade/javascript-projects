@@ -1,4 +1,6 @@
 var a = ['1','2','3','4','5','6','7','8','9','0'];
+// takes in an array of strings and returns an array of strings
+// the return array has all the combinations of the array
 function f(a) {
 	if (a.length === 2) {
 		return [a[0]+"+"+a[1], a[0]+"-"+a[1], a[0]+a[1]];
