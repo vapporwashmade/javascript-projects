@@ -1,5 +1,4 @@
-Array.prototype.myEvery = function (fill, start, end) {
-	var fillWith = fill;
+Array.prototype.myFill = function (fill, start, end) {
 	var startAt = start;
 	var endAt = end;
 	if (fill === undefined) {
@@ -16,4 +15,4 @@ Array.prototype.myEvery = function (fill, start, end) {
 	}
 	return this;
 };
-console.log([1, 2, 3].fill(4, 1, 2));                // [4, 4, 4])
+console.log([1, 2, 3].myFill(4, 1, 2));
