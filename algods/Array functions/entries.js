@@ -17,3 +17,10 @@ Array.prototype.myEntries = function () {
 		}
 	};
 };
+let it = ['3', 34, 'rf', 'd', ','].myEntries();
+
+let result = it.next();
+while (!result.done) {
+	console.log(result.value);
+	result = it.next();
+}
