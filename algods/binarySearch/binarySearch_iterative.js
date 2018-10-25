@@ -5,25 +5,20 @@
 function binarySearch_iterative(target, a) {
 	var low = 0;
 	var high = a.length;
-	var check = Math.floor((high+low)/2);
-	var found = false;
-	while (!found) {
-		if (a[check] === target) {
-			found = true;
-			break;
-		}
-		if (check === low && high === check + 1) {
-			return -1;
-		}
-		if (a[check] < target) {
-			low = check;
-			check = Math.floor((high+low)/2);
-		} else if (a[check] > target) {
-			high = check;
-			check = Math.floor((high + low) / 2);
+	var mid = Math.floor((high+low)/2);
+	while (low < mid && a[mid] !== target) {
+		if (a[mid] < target) {
+			low = mid;
+			mid = Math.floor(low + (high-low)/2);
+		} else if (a[mid] > target) {
+			high = mid;
+			mid = Math.floor(low + (high-low)/2);
 		}
 	}
-	return check;
+	if (a[mid] === target) {
+		return mid;
+	}
+	return -1;
 }
 var a = [];
 for (var i = 0; i < 100; i+=2) {
