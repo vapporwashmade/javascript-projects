@@ -5,7 +5,7 @@
 function binarySearch_iterative(target, a) {
 	var low = 0;
 	var high = a.length;
-	var mid = Math.floor((high+low)/2);
+	var mid = Math.floor(low + (high-low)/2);
 	while (low < mid && a[mid] !== target) {
 		if (a[mid] < target) {
 			low = mid;
