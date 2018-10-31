@@ -1,6 +1,7 @@
 // takes in three values for red, green, and blue respectively
 // looks each of the three values up in an array and adds results together
 // cost: 3 lookups and two additions
+console.time('x');
 var redValues = [];
 var greenValues = [];
 var blueValues = [];
@@ -16,7 +17,6 @@ for (i = 0; i < 256; i++) {
 function getBrightnessPartialLookup(red, green, blue) {
 	return redValues[red]+greenValues[green]+blueValues[blue];
 }
-console.time('x');
 for (i = 0; i < 1000000; i++) {
 	var red = Math.floor(Math.random()*255);
 	var green = Math.floor(Math.random()*255);

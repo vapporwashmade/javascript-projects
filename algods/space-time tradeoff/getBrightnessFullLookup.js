@@ -1,6 +1,7 @@
 // takes in three values for red, green, and blue respectively
 // multiplies them together and looks the result up
 // cost: two multiplications and one lookup
+console.time('x');
 var rgbValues = [];
 for (var i = 0; i < 256; i++) {
 	for (var j = 0; j < 256; j++) {
@@ -12,8 +13,7 @@ for (var i = 0; i < 256; i++) {
 function getBrightnessFullLookup(red, green, blue) {
 	return rgbValues[red*green*blue];
 }
-console.time('x');
-for (i = 0; i < 1000; i++) {
+for (i = 0; i < 1000000; i++) {
 	var red = Math.floor(Math.random()*255);
 	var green = Math.floor(Math.random()*255);
 	var blue = Math.floor(Math.random()*255);
