@@ -1,6 +1,4 @@
 var words = require('./english-words.js');
-
-var randNums = [];
 var map = {
 	'2':'a,b,c',
 	'3':'d,e,f',
@@ -11,6 +9,7 @@ var map = {
 	'8':'t,u,v',
 	'9':'w,x,y,z'
 };
+var phonenumber = '3292997';
 
 // this function takes in a string and an object and returns an array of the possibilities
 // that the string could be mapped to in the object
@@ -33,14 +32,9 @@ function telephoneMap(str, obj) {
 	}
 	return next;
 }
-for (var i = 0; i < 100000; i++) {
-	randNums.push(Math.floor(1000000 + Math.random() * 9000000));
-}
-for (i = 0; i < randNums.length; i++) {
-	var possibilities = telephoneMap(randNums[i], map);
-	for (var j = 0; j < possibilities.length; j++) {
-		if (words.includes(possibilities[j])) {
-			console.log('The phone mnemonic: 1-800-' + possibilities[j] + ' with number ' + randNums[i]);
-		}
+var p = telephoneMap(phonenumber, map);
+for (var i = 0; i < p.length; i++) {
+	if (words.includes(p[i])) {
+		console.log('The phone mnemonic: 1-800-' + p[i] + ' with number ' + phonenumber);
 	}
 }
