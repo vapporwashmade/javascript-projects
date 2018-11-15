@@ -34,7 +34,7 @@ function telephoneMap(str, obj) {
 	return next;
 }
 for (var i = 0; i < 100000; i++) {
-	randNums.push(Math.floor(1000000 + Math.random() * 9000000));
+	randNums.push(Math.floor(1000000 + Math.random() * 9000000).toString());
 }
 for (i = 0; i < randNums.length; i++) {
 	var possibilities = telephoneMap(randNums[i], map);
