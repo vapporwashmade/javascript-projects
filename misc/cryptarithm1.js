@@ -2,6 +2,7 @@
 // it is AB-CD=EF+GH=PPP
 // i realized PPP was 111 and wrote this program to solve the rest
 // i could have done it by hand, but i wrote a program for it
+console.time('x');
 function solve() {
 	for (var a = 2; a < 10; a++) {
 		for (var b = 2; b < 10; b++) {
@@ -35,3 +36,4 @@ function solve() {
 	}
 }
 solve();
+console.timeEnd('x');

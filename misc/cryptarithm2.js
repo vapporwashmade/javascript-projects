@@ -1,4 +1,5 @@
 // another way to solve cryptarithm1
+console.time('x');
 function solve() {
 	var occurrences = {
 		2:0,
@@ -41,11 +42,12 @@ function solve() {
 	}
 }
 function unique(obj) {
-	for (var i = 0; i < obj.values.length; i++) {
-		if (obj.values[i] !== 1) {
+	for (var i = 0; i < Object.values(obj).length; i++) {
+		if (Object.values(obj)[i] !== 1) {
 			return false;
 		}
 	}
 	return true;
 }
 solve();
+console.timeEnd('x');
