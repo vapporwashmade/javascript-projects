@@ -26,21 +26,30 @@ function solve() {
 							for (var g = 2; g < 10; g++) {
 								occurrences[g]++;
 								for (var h = 2;  h < 10; h++) {
-									occurrences[f]++;
+									occurrences[h]++;
 									if ((10*a+b)-(10*c+d) === (10*e+f) && (10*e+f) + (10*g+h) === 111) {
 										if (unique(occurrences)) {
 											console.log(a, b, c, d, e, f, g, h);
 										}
 									}
+									occurrences[h]--;
 								}
+								occurrences[g]--;
 							}
+							occurrences[f]--;
 						}
+						occurrences[e]--;
 					}
+					occurrences[d]--;
 				}
+				occurrences[c]--;
 			}
+			occurrences[b]--;
 		}
+		occurrences[a]--;
 	}
 }
+// checks if all values are 1
 function unique(obj) {
 	for (var i = 0; i < Object.values(obj).length; i++) {
 		if (Object.values(obj)[i] !== 1) {

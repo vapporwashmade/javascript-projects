@@ -14,13 +14,13 @@ function binarySearchRecursive(target, a) {
 		return -1;
 	}
 	if (a[mid] < target) {
-		return binarySearchRecursive(target, a.slice(mid+1, high));
+		return binarySearchRecursive(target, a.slice(mid+1, high))-mid;
 	} else if (a[mid] > target) {
-		return binarySearchRecursive(target, a.slice(low, mid - 1));
+		return binarySearchRecursive(target, a.slice(low, mid))+mid;
 	}
 }
 var a = [];
 for (var i = 0; i < 100; i++) {
 	a.push(i+1);
 }
-console.log(binarySearchRecursive(34, a));
+console.log(binarySearchRecursive(37, a));
