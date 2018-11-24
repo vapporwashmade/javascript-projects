@@ -20,3 +20,10 @@ I also learned how floating point numbers work. It is interesting because Javasc
 Another thing I learned about was temporary variables. They may be useful in some situations, but sometimes, it makes your program slower. Take an example. If you want to convert an array of numbers from one base to another, and you time them, your program will become 25% faster if you use temporary variables. But, if you compute the volume of an n-dimensional sphere using the formula, using temporary variables will slow your program down by 10%.
 
 The last thing I learned about was caching. If caching is on and you execute a function with the same arguments twice, on the first execution, the function executes normally, but the second time, it executes immediately. This is because the program stores some data on disk so it is faster to execute and you do not have to run the whole function again. It just searches the disk. This is a very neat feature and quite useful, especially if you are working with big functions and you have a lot of disk space.
+
+## Day 3: 11/20/18
+Today, I learned about different basic data structures like arrays, hashes, and objects. I learned that arrays are indexed by numbers from 0 to n-1 if the length of the array is n. They store values but cannot be indexed by will.
+
+A hash is a collection of values ordered by keys, which are strings you pick. The ordering can also be determined by a hashing function.
+
+An object is a collection of 
