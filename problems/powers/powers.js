@@ -36,9 +36,9 @@ function add(a1, a2) {
 // uses grade school multiplication algorithm
 function multiply(a1, a2) {
 	var partialproducts = [];
-	var carry = 0;
 	for (var i = 0; i < a2.length; i++) {
 		var pp = [];
+		var carry = 0;
 		for (var j = 0; j < a1.length; j++) {
 			pp.unshift((a1[a1.length - (j+1)] * a2[a2.length - (i+1)] + carry) % 10);
 			if (a1[a1.length - (j+1)] * a2[a2.length - (i+1)] + carry >= 10) {
@@ -68,10 +68,11 @@ function multiply(a1, a2) {
 // uses repeated multiplication
 function exponentiation(baseArray, exponent) {
 	var x = baseArray;
-	for (var i = 0; i < exponent - 1; i++) {
+	for (var i = 0; i < exponent - 1;i++) {
 		x = multiply(x, baseArray);
+		console.log(x);
 	}
 	return x;
 }
-// console.log(exponentiation([2], 4));
-console.log(exponentiation([5], 75));
+var x = exponentiation([1,5], 25);
+console.log(x.join('') + ' with ' + x.length + ' digits.');
