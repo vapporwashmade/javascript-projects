@@ -11,6 +11,8 @@ for (i = 0; n2 > 0; i++) {
 	a2.unshift(n2 % 10);
 	n2 = Math.floor(n2/10);
 }
+// takes in two arrays of digits and returns an array containing the addition result of the two joined numbers split into digits
+// uses grade school addition algorithm
 function add(a1, a2) {
 	while (a1.length > a2.length) {
 		a2.unshift(0);
@@ -30,6 +32,8 @@ function add(a1, a2) {
 	}
 	return arr;
 }
+// takes in two arrays of digits and returns an array containing the multiplication result of the two joined numbers split into digits
+// uses grade school multiplication algorithm
 function multiply(a1, a2) {
 	var partialproducts = [];
 	var carry = 0;
@@ -59,6 +63,9 @@ function multiply(a1, a2) {
 	}
 	return returning;
 }
+// takes in an array of the base number and a nonnegative number exponent
+// the base array must be split into digits otherwise it wont work
+// uses repeated multiplication
 function exponentiation(baseArray, exponent) {
 	var x = baseArray;
 	for (var i = 0; i < exponent - 1; i++) {
