@@ -30,6 +30,9 @@ function add(a1, a2) {
 			carry = 0;
 		}
 	}
+	if (carry !== 0) {
+		arr.unshift(carry);
+	}
 	return arr;
 }
 // takes in two arrays of digits and returns an array containing the multiplication result of the two joined numbers split into digits
@@ -57,8 +60,8 @@ function multiply(a1, a2) {
 			partialproducts[i].push(0);
 		}
 	}
-	var returning = [];
-	for (i = 0; i < partialproducts.length; i++) {
+	var returning = partialproducts[0];
+	for (i = 1; i < partialproducts.length; i++) {
 		returning = add(returning, partialproducts[i]);
 	}
 	return returning;
@@ -70,9 +73,9 @@ function exponentiation(baseArray, exponent) {
 	var x = baseArray;
 	for (var i = 0; i < exponent - 1;i++) {
 		x = multiply(x, baseArray);
-		console.log(x);
+		// console.log(x);
 	}
 	return x;
 }
-var x = exponentiation([1,5], 25);
+var x = exponentiation([1,5,1,7], 1000);
 console.log(x.join('') + ' with ' + x.length + ' digits.');
