@@ -15,7 +15,7 @@ The first way takes more time(uses the CPU more), but requires no memory. On the
 ## Day 2: 11/2/18
 Today, I learned about the use of benchmarking, floating point numbers, temporary variables, and caching. Benchmarking can help you take the time of different functions, or the difference of the time it takes to execute the same algorithm two different ways. It is a very useful tool to measure the time of functions.
 
-I also learned how floating point numbers work. It is interesting because Javascript considers floating point numbers to be different than integers. It works by converting the floating point numbers into the binary representations of them and then dividing them. For example, if you do this: `parseInt(2.4/0.2)`, it should return 12. But it doesn't. It returns 11. The binary floating point representation when you divide 2.4/0.2 and then convert it into an integer is slightly below 12. So Javascript converts it into 11.
+I also learned how floating point numbers work. It is interesting because Javascript considers floating point numbers to be different than integers. It works by converting the floating point numbers into the binary representations of them and then dividing them. For example, if you do this: `parseInt(2.4/0.2)`, it should return 12. But it doesn't. It returns 11.  The binary floating point representation when you divide 2.4/0.2 and then convert it into an integer is slightly below 12. So Javascript converts it into 11.
 
 Another thing I learned about was temporary variables. They may be useful in some situations, but sometimes, it makes your program slower. Take an example. If you want to convert an array of numbers from one base to another, and you time them, your program will become 25% faster if you use temporary variables. But, if you compute the volume of an n-dimensional sphere using the formula, using temporary variables will slow your program down by 10%.
 
@@ -26,4 +26,9 @@ Today, I learned about different basic data structures like arrays, hashes, and 
 
 A hash is a collection of values ordered by keys, which are strings you pick. The ordering can also be determined by a hashing function.
 
-An object is a collection of 
+An object is a collection of key/value pairs similar to a hash. The only difference is that objects are ordered by your keys and a hash's keys are usually determined by a hashing function.
+
+## Day 4: 11/26/18
+Today, I learned about queues. A queue stores values in a FIFO order. FIFO stands for first in, first out. This means it takes in a value to the end, and pushes the oldest element out from the front. So the first one in is the first one out. An example of a queue is a line of people at a cashier. The first one goes in the line first, and once he finishes, he goes out of the line first.
+
+Queues are useful because they allow two different parts of code to run quickly by themselves, while also letting them interact smoothly. One part of the code can push values to the end of the array, while another part of code takes them out of the front.
