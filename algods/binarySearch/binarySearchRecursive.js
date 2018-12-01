@@ -14,9 +14,9 @@ function binarySearchRecursive(target, a) {
 		return -1;
 	}
 	if (a[mid] < target) {
-		return binarySearchRecursive(target, a.slice(mid+1, high))-mid;
+		return binarySearchRecursive(target, a.slice(mid+1, high));
 	} else if (a[mid] > target) {
-		return binarySearchRecursive(target, a.slice(low, mid))+mid;
+		return binarySearchRecursive(target, a.slice(low, mid));
 	}
 }
 var a = [];

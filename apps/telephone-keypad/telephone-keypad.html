@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Telephone Keypad Problem</title>
+    <!--<style>-->
+        <!--#generated {-->
+            <!--font-size: 20px;-->
+        <!--}-->
+
+        <!--#generated:after {-->
+            <!--overflow: hidden;-->
+            <!--display: inline-block;-->
+            <!--vertical-align: bottom;-->
+            <!-- -webkit-animation: ellipsis steps(4,end) 900ms infinite;-->
+            <!--animation: ellipsis steps(4,end) 900ms infinite;-->
+            <!--content: "\2026"; /* ascii code for the ellipsis character */-->
+            <!--width: 0px;-->
+        <!--}-->
+
+        <!--@keyframes ellipsis {-->
+            <!--to {-->
+                <!--width: 1.25em;-->
+            <!--}-->
+        <!--}-->
+
+        <!--@-webkit-keyframes ellipsis {-->
+            <!--to {-->
+                <!--width: 1.25em;-->
+            <!--}-->
+        <!--}-->
+    <!--</style>-->
+</head>
+<body>
+    <h1 id="phonenumberkeypad">Check if a phone number has an mnemonic</h1>
+    <label for="phonenumber"></label><input type="text" id="phonenumber">
+    <script src="telephone-keypad.js"></script>
+    <button onclick="findnumber(document.getElementById('phonenumber').value)">Check</button>
+    <p id="aftertext"></p>
+    <h1 id="telephonekeypad">Find telephone numbers with mnemonics</h1>
+    <input id="numdigits">
+    <button onclick="generate()">Generate</button>
+    <p id="generated"></p>
+</body>
+</html>
