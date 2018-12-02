@@ -6,31 +6,9 @@
 </head>
 <body>
     <script src="decimalNumberReader.js"></script>
-    <script src="../../node_modules/talkify-tts/dist/talkify.js"></script>
-    <script>
-	    talkify.config.remoteService.active = true;
-	    talkify.config.keyboardCommands.enabled = true;
-	    talkify.config.voiceCommands.enabled = true;
-
-	    talkify.config.remoteService.speechBaseUrl = '/api/internal/speech';
-	    talkify.config.remoteService.languageBaseUrl = '/api/internal/language';
-	    talkify.config.remoteService.host = 'http://localhost:6719';
-	    talkify.config.ui.audioControls = {
-		    enabled: false, //<-- Disable to get the browser built in audio controls
-		    container: document.getElementById("player-and-voices")
-	    };
-	    var player = new talkify.Html5Player().enableTextHighlighting().forceLanguage('en-EN');
-
-	    new talkify.playlist()
-		    .begin()
-		    .usingPlayer(player)
-		    .withTextInteraction() //<--Any element you'd like. Leave blank to let Talkify make a good guess
-		    .build() //<-- Returns an instance.
-		    .play();
-    </script>
     <p>Put your number here:</p>
-    <input id="num" oninput="readNum(document.getElementById('num').value)">
-    <button>Read</button>
+    <input id="num">
+    <button onclick="readNum(document.getElementById('num').value)">Read</button>
     <p id="read"></p>
 </body>
 </html>
