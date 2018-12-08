@@ -134,7 +134,7 @@ function readNum(num) {
 		var numArray = [];
 		var decimalArray = [];
 		numbers2.unshift('');
-		// numbers1['0'] = '';
+		numbers1['0'] = '';
 		var negative = false;
 		if (num.charAt(0) === '+') {
 			num = num.slice(1);
@@ -164,7 +164,7 @@ function readNum(num) {
 		if (decimalPoint !== - 1) {
 			reading += 'point';
 		}
-		// numbers1['0'] = 'zero';
+		numbers1['0'] = 'zero';
 		for (i = 0; i < decimalArray.length; i ++) {
 			reading = reading + ' ' + numbers1[decimalArray[i]];
 		}
