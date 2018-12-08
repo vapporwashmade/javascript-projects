@@ -1,4 +1,14 @@
-// another way to solve cryptarithm1
+// this is a program to solve a cryptarithm my dad gave me
+//       AB
+//      -CD
+//     ----
+// 	 EF
+//	+GH
+//     ----
+//	PPP
+// i realized PPP was 111 and wrote this program to solve the rest
+// i could have done it by hand, but i wrote a program for it
+// this program is faster that cryptarithm1
 console.time('x');
 function solve() {
 	var occurrences = {
