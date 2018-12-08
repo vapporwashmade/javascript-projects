@@ -1,6 +1,6 @@
 // this function takes in a number and 'reads it'; returns a string
 // e.g. if you input 100 it would return 'one hundred'
-function readNum(num) {
+async function readNum(num) {
 	var soundsM = {
 		'one' : '1a',
 		'two' : '2 a',
@@ -73,18 +73,39 @@ function readNum(num) {
 		document.getElementById('read').textContent = '';
 		return;
 	}
-	if (Object.keys(numbers1).includes(num)) {
+	if (isNaN(Number(num))) {
+		document.getElementById('read').textContent = num + ' is not a number!';
+		return num + ' is not a decimal number!';
+	} else if (Object.keys(numbers1).includes(num)) {
 		reading = numbers1[num];
 	} else if (numbers2.includes(num)) {
 		reading = 'one ' + numbers2[num];
 	} else {
+		if (num.charAt(0) === '+') {
+			num = num.slice(1);
+		}
 		var numArray = [];
+		var decimalArray = [];
 		numbers2.unshift('');
 		numbers1['0'] = '';
-		for (var i = 0; num.length > 0; i ++) {
+		var negative = false;
+		if (num.charAt(0) === '-') {
+			num = num.slice(1);
+			negative = true;
+		}
+		var decimalPoint = num.indexOf('.');
+		if (decimalPoint !== -1) {
+			for (var i = decimalPoint + 1; i < num.length; i++) {
+				decimalArray.push(num.charAt(i));
+			}
+			num = num.slice(0, decimalPoint);
+		}
+		console.log(num);
+		for (i = 0; num.length > 0; i ++) {
 			numArray.push(num.slice(- 3));
 			num = num.slice(0, - 3);
 		}
+		console.log(numArray, decimalArray);
 		for (i = 0; i < numArray.length; i ++) {
 			var str = numArray[i];
 			var res = '';
@@ -108,24 +129,34 @@ function readNum(num) {
 			}
 			reading = res + ' ' + numbers2[i] + ' ' + reading;
 		}
-		if (Object.values(numbers2).includes(reading.split(' ')[0])) {
+		if (Object.values(numbers2).includes(reading.split(' ')[0]) && decimalArray.length > 0) {
+			reading = 'zero ' + reading;
+		} else if (Object.values(numbers2).includes(reading.split(' ')[0]) && reading.trim().length > 0 && reading.trim().length > 0) {
 			reading = 'one ' + reading;
+		}
+		if (decimalPoint !== -1) {
+			reading += 'point';
+		}
+		for (i = 0; i < decimalArray.length; i++) {
+			reading = reading + ' ' + numbers1[decimalArray[i]];
+		}
+		if (negative && reading.trim().length > 0) {
+			reading = 'negative ' + reading;
 		}
 	}
 	document.getElementById('read').textContent = reading;
-	t = reading.split(' ');
-	for (i = 0; i < t.length; i++) {
-		if (t[i].length === 0) {
-			continue;
-		}
-		console.log(t[i] + ", " + i);
-		play1(soundsM[t[i]], i);
-	}
-	function play1(str, i) {
-		setTimeout(function () {
-			var audio = new Audio('/javascript-projects/apps/decimalNumberReader/program-recordings/' + str + '.mp3');
-			audio.play();
-		}, 700 * i);
-	}
+	// var t = reading.split(' ');
+	// console.log(t);
+	// for (i = 0; i < t.length; i++) {
+	// 	if (t[i].length === 0) {
+	// 		continue;
+	// 	}
+	// 	var m = playAudio(soundsM[t[i]]);
+	// 	await m;
+	// }
+	// function playAudio(string) {
+	// 	var audio = new Audio('/javascript-projects/apps/decimalNumberReader/program-recordings/' + string + '.mp3');
+	// 	audio.play();
+	// }
 	return reading;
 }
