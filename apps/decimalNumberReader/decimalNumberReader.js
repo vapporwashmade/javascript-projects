@@ -124,7 +124,7 @@ function readNum(num) {
 		return;
 	}
 	if (isNaN(Number(num))) {
-		document.getElementById('read').textContent = num + ' is not a number!';
+		document.getElementById('read').textContent = num + ' is not a decimal number!';
 		return num + ' is not a decimal number!';
 	} else if (Object.keys(numbers1).includes(num)) {
 		reading = numbers1[num];
