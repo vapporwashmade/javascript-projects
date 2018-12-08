@@ -1,3 +1,6 @@
+// trims all the insignificant zeros from a string which is a number
+// insignificant zeros are leading zeros and trailing zeros after the decimal point
+// returns a string with the trimmed value
 function trimZeros(str) {
 	var strarray = [];
 	for (var i = 0; i < str.length && str.charAt(i) === '0'; ) {
@@ -19,6 +22,10 @@ function trimZeros(str) {
 	}
 	return strarray.join('');
 }
+// reads a string of three letters
+// main part of my program
+// takes in two objects, the string you want to convert, and a number of where it is in the loop
+// returns a string of the string after it is read
 function readHundred(str, obj1, obj2, i) {
 	var res = '';
 	while (str.length < 3) {
@@ -186,4 +193,3 @@ function readNum(num) {
 	// }
 	return reading;
 }
-console.log(trimZeros('0010890'));
