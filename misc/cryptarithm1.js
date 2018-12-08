@@ -1,5 +1,9 @@
 // this is a program to solve a cryptarithm my dad gave me
-// it is AB-CD=EF+GH=PPP
+// AB
+//-CD
+// EF
+//+GH
+//PPP
 // i realized PPP was 111 and wrote this program to solve the rest
 // i could have done it by hand, but i wrote a program for it
 console.time('x');
