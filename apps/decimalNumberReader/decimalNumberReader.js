@@ -17,8 +17,7 @@ function trimZeros(str) {
 	for (i = 0; i < str.length; i++) {
 		strarray.push(str.charAt(i));
 	}
-	console.log(strarray.join(''));
-	return strarray;
+	return strarray.join('');
 }
 function readHundred(str, obj1, obj2, i) {
 	var res = '';
@@ -128,7 +127,7 @@ function readNum(num) {
 		var numArray = [];
 		var decimalArray = [];
 		numbers2.unshift('');
-		numbers1['0'] = '';
+		// numbers1['0'] = '';
 		var negative = false;
 		if (num.charAt(0) === '+') {
 			num = num.slice(1);
@@ -137,25 +136,29 @@ function readNum(num) {
 			num = num.slice(1);
 			negative = true;
 		}
-		trimZeros(num);
+		num = trimZeros(num);
 		var decimalPoint = num.indexOf('.');
-		if (decimalPoint !== -1) {
-			for (i = decimalPoint + 1; i < num.length; i++) {
+		if (decimalPoint !== - 1) {
+			for (i = decimalPoint + 1; i < num.length; i ++) {
 				decimalArray.push(num.charAt(i));
 			}
 			num = num.slice(0, decimalPoint);
 		}
 		for (var i = 0; num.length > 0; i ++) {
-			numArray.push(num.slice(-3));
-			num = num.slice(0, -3);
+			numArray.push(num.slice(- 3));
+			num = num.slice(0, - 3);
 		}
-		for (i = 0; i < numArray.length; i++) {
+		for (i = 0; i < numArray.length; i ++) {
 			reading = readHundred(numArray[i], numbers1, numbers2, i) + ' ' + reading;
 		}
-		if (decimalPoint !== -1) {
+		if (numArray.length === 0 && decimalArray.length > 0) {
+			reading += 'zero ';
+		}
+		if (decimalPoint !== - 1) {
 			reading += 'point';
 		}
-		for (i = 0; i < decimalArray.length; i++) {
+		// numbers1['0'] = 'zero';
+		for (i = 0; i < decimalArray.length; i ++) {
 			reading = reading + ' ' + numbers1[decimalArray[i]];
 		}
 		if (negative && reading.trim().length > 0) {
