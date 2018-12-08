@@ -1,3 +1,8 @@
+function f(e) {
+	if (e.key === 'Enter') {  //checks whether the pressed key is "Enter"
+		readNum(document.getElementById('num').value);
+	}
+}
 // trims all the insignificant zeros from a string which is a number
 // insignificant zeros are leading zeros and trailing zeros after the decimal point
 // returns a string with the trimmed value
