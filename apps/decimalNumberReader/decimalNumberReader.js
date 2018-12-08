@@ -1,6 +1,50 @@
+function trimZeros(str) {
+	var strarray = [];
+	for (var i = 0; i < str.length && str.charAt(i) === '0'; ) {
+		str = str.slice(1);
+	}
+	var decimal = false;
+	for (i = 0; i < str.length && !decimal; i++) {
+		if (str[i] === '.') {
+			decimal = true;
+		}
+	}
+	if (decimal) {
+		for (i = 1; i < str.length && str.charAt(str.length-i) === '0' || str.charAt(str.length-i) === '.'; ) {
+			str = str.slice(0, -1);
+		}
+	}
+	for (i = 0; i < str.length; i++) {
+		strarray.push(str.charAt(i));
+	}
+	console.log(strarray.join(''));
+	return strarray;
+}
+function readHundred(str, obj1, obj2, i) {
+	var res = '';
+	while (str.length < 3) {
+		str = '0' + str;
+	}
+	if (str.charAt(0) !== '0') {
+		res += obj1[str.charAt(0)] + ' hundred ';
+	}
+	if (str.charAt(1) === '1') {
+		res += obj1[str.slice(1)];
+	} else if (str.charAt(1) === '0') {
+		res += obj1[str.charAt(2)];
+	} else {
+		res += obj1[str.charAt(1) + '0'] + ' ';
+		res += obj1[str.charAt(2)] + ' ';
+	}
+	if (Number(res) === 0) {
+		obj2[i] = '';
+	}
+	var x = res + ' ' + obj2[i] + ' ';
+	return x.trim();
+}
 // this function takes in a number and 'reads it'; returns a string
 // e.g. if you input 100 it would return 'one hundred'
-async function readNum(num) {
+function readNum(num) {
 	var soundsM = {
 		'one' : '1a',
 		'two' : '2 a',
@@ -81,58 +125,32 @@ async function readNum(num) {
 	} else if (numbers2.includes(num)) {
 		reading = 'one ' + numbers2[num];
 	} else {
-		if (num.charAt(0) === '+') {
-			num = num.slice(1);
-		}
 		var numArray = [];
 		var decimalArray = [];
 		numbers2.unshift('');
 		numbers1['0'] = '';
 		var negative = false;
+		if (num.charAt(0) === '+') {
+			num = num.slice(1);
+		}
 		if (num.charAt(0) === '-') {
 			num = num.slice(1);
 			negative = true;
 		}
+		trimZeros(num);
 		var decimalPoint = num.indexOf('.');
 		if (decimalPoint !== -1) {
-			for (var i = decimalPoint + 1; i < num.length; i++) {
+			for (i = decimalPoint + 1; i < num.length; i++) {
 				decimalArray.push(num.charAt(i));
 			}
 			num = num.slice(0, decimalPoint);
 		}
-		console.log(num);
-		for (i = 0; num.length > 0; i ++) {
-			numArray.push(num.slice(- 3));
-			num = num.slice(0, - 3);
+		for (var i = 0; num.length > 0; i ++) {
+			numArray.push(num.slice(-3));
+			num = num.slice(0, -3);
 		}
-		console.log(numArray, decimalArray);
-		for (i = 0; i < numArray.length; i ++) {
-			var str = numArray[i];
-			var res = '';
-			while (str.length < 3) {
-				str = '0' + str;
-			}
-			console.log(str, numArray);
-			if (str.charAt(0) !== '0') {
-				res += numbers1[str.charAt(0)] + ' hundred ';
-			}
-			if (str.charAt(1) === '1') {
-				res += numbers1[str.slice(1)];
-			} else if (str.charAt(1) === '0') {
-				res += numbers1[str.charAt(2)];
-			} else {
-				res += numbers1[str.charAt(1) + '0'] + ' ';
-				res += numbers1[str.charAt(2)] + ' ';
-			}
-			if (Number(res) === 0) {
-				numbers2[i] = '';
-			}
-			reading = res + ' ' + numbers2[i] + ' ' + reading;
-		}
-		if (Object.values(numbers2).includes(reading.split(' ')[0]) && decimalArray.length > 0) {
-			reading = 'zero ' + reading;
-		} else if (Object.values(numbers2).includes(reading.split(' ')[0]) && reading.trim().length > 0 && reading.trim().length > 0) {
-			reading = 'one ' + reading;
+		for (i = 0; i < numArray.length; i++) {
+			reading = readHundred(numArray[i], numbers1, numbers2, i) + ' ' + reading;
 		}
 		if (decimalPoint !== -1) {
 			reading += 'point';
@@ -143,6 +161,11 @@ async function readNum(num) {
 		if (negative && reading.trim().length > 0) {
 			reading = 'negative ' + reading;
 		}
+		// if (Object.values(numbers2).includes(reading.split(' ')[0]) && decimalArray.length > 0) {
+		// 	reading = 'zero ' + reading;
+		// } else if (Object.values(numbers2).includes(reading.split(' ')[0]) && reading.trim().length > 0 && reading.trim().length > 0) {
+		// 	reading = 'one ' + reading;
+		// }
 	}
 	document.getElementById('read').textContent = reading;
 	// var t = reading.split(' ');
@@ -160,3 +183,4 @@ async function readNum(num) {
 	// }
 	return reading;
 }
+console.log(trimZeros('0010890'));
