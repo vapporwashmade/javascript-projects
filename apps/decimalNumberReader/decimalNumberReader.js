@@ -1,4 +1,15 @@
+// checks if key pressed is enter
+// if it is, reads the decimal number
+// if not, it returns
 function f(e) {
+	document.getElementById('1').textContent = readNum('3467');
+	document.getElementById('2').textContent = readNum('-46');
+	document.getElementById('3').textContent = readNum('457.19');
+	document.getElementById('4').textContent = readNum('-100.8936364636');
+	document.getElementById('5').textContent = readNum('1000000');
+	document.getElementById('6').textContent = readNum('-.6');
+	document.getElementById('7').textContent = readNum('.69');
+	document.getElementById('8').textContent = readNum('1111111111111111111111111111111111111111111111111111111111111111111111111');
 	if (e.key === 'Enter') {  //checks whether the pressed key is "Enter"
 		readNum(document.getElementById('num').value);
 	}
@@ -47,10 +58,18 @@ function readHundred(str, obj1, obj2, i) {
 		res += obj1[str.charAt(1) + '0'] + ' ';
 		res += obj1[str.charAt(2)] + ' ';
 	}
-	if (Number(res) === 0) {
-		obj2[i] = '';
+	var scale = obj2[i];
+	var temp = i;
+	while (temp > obj2.length) {
+		scale = obj2[temp-obj2.length] + ' ' + obj2[obj2.length-1];
+		if (temp > obj2.length) {
+			temp -= obj2.length;
+		}
 	}
-	var x = res + ' ' + obj2[i] + ' ';
+	if (Number(res) === 0) {
+		scale = '';
+	}
+	var x = res + ' ' + scale + ' ';
 	return x.trim();
 }
 // this function takes in a number and 'reads it'; returns a string
