@@ -9,7 +9,7 @@ function f(e) {
 	document.getElementById('5').textContent = readNum('1000000');
 	document.getElementById('6').textContent = readNum('-.6');
 	document.getElementById('7').textContent = readNum('.69');
-	document.getElementById('8').textContent = readNum('1111111111111111111111111111111111111111111111111111111111111111111111111');
+	document.getElementById('8').textContent = readNum('111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
 	if (e.key === 'Enter') {  //checks whether the pressed key is "Enter"
 		readNum(document.getElementById('num').value);
 	}
@@ -59,11 +59,11 @@ function readHundred(str, obj1, obj2, i) {
 		res += obj1[str.charAt(2)] + ' ';
 	}
 	var scale = obj2[i];
-	var temp = i;
-	while (temp > obj2.length) {
-		scale = obj2[temp-obj2.length] + ' ' + obj2[obj2.length-1];
-		if (temp > obj2.length) {
-			temp -= obj2.length;
+	var temp = i+1;
+	if (i > obj2.length) {
+		scale = obj2[i%obj2.length] + ' ';
+		for (var j = 0; j < Math.floor(i/obj2.length); j++) {
+			scale += 'quattuordecillion ';
 		}
 	}
 	if (Number(res) === 0) {
@@ -75,41 +75,6 @@ function readHundred(str, obj1, obj2, i) {
 // this function takes in a number and 'reads it'; returns a string
 // e.g. if you input 100 it would return 'one hundred'
 function readNum(num) {
-	var soundsM = {
-		'one' : '1a',
-		'two' : '2 a',
-		'three' : '3 a',
-		'four' : '4 a',
-		'five' : '5 a',
-		'six' : '6 a',
-		'seven' : '7 a',
-		'eight' : '8 a',
-		'nine' : '9 a',
-		'ten' : '10 a',
-		'eleven' : '11 a',
-		'twelve' : '12 a',
-		'thirteen' : '13 a',
-		'fourteen' : '14 a',
-		'fifteen' : '15 a',
-		'sixteen' : '16 a',
-		'seventeen' : '17 a',
-		'eighteen' : '18 a',
-		'nineteen' : '19 a',
-		'twenty' : '20 a',
-		'thirty' : '30 a',
-		'forty' : '40 a',
-		'fifty' : '50 a',
-		'sixty' : '60 a',
-		'seventy' : '70 a',
-		'eighty' : '80 a',
-		'ninety' : '90 a',
-		'hundred' : 'hundred a',
-		'thousand' : 'thousand a',
-		'million' : 'million a',
-		'billion' : 'billion a',
-		'trillion' : 'trillion a',
-		'quadrillion' : 'quadrillion a',
-	};
 	var reading = '';
 	var numbers1 = {
 		'0' : 'zero',
@@ -181,6 +146,7 @@ function readNum(num) {
 		}
 		for (i = 0; i < numArray.length; i ++) {
 			reading = readHundred(numArray[i], numbers1, numbers2, i) + ' ' + reading;
+			console.log(i);
 		}
 		if (numArray.length === 0 && decimalArray.length > 0) {
 			reading += 'zero ';
@@ -202,18 +168,11 @@ function readNum(num) {
 		// }
 	}
 	document.getElementById('read').textContent = reading;
-	// var t = reading.split(' ');
-	// console.log(t);
-	// for (i = 0; i < t.length; i++) {
-	// 	if (t[i].length === 0) {
-	// 		continue;
-	// 	}
-	// 	var m = playAudio(soundsM[t[i]]);
-	// 	await m;
-	// }
-	// function playAudio(string) {
-	// 	var audio = new Audio('/javascript-projects/apps/decimalNumberReader/program-recordings/' + string + '.mp3');
-	// 	audio.play();
-	// }
+	var talkify = require('../../node_modules/talkify-tts');
+	var player = new talkify.Html5Player();
+	var t = reading.split('');
+	for (i = 0; i < t.length; i++) {
+		player.playAudio(t[i]);
+	}
 	return reading;
 }
