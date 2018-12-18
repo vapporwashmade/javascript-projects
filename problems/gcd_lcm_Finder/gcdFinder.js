@@ -1,3 +1,5 @@
+//TODO: make this faster
+
 // this function finds the gcd(greatest common divisor) of two numbers
 // it takes in two numbers and returns a number
 function gcd(num1, num2) {
@@ -69,5 +71,5 @@ function gcd(num1, num2) {
 	return gcd;
 }
 console.time('x');
-console.log(gcd(100,100));
+console.log(gcd(100,30));
 console.timeEnd('x');
