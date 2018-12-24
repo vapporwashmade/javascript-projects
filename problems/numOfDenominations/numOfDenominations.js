@@ -1,5 +1,5 @@
-var available = [10, 5, 1];
-var target = 67.45;
+var available = [25, 10, 5, 1];
+var target = 10;
 target = target.toFixed(2) * 100;
 function findDenominations(denominations, target, lastDenomination) {
 	// Base case
@@ -22,18 +22,21 @@ function findDenominations(denominations, target, lastDenomination) {
 function write(array) {
 	var denominations = {
 		1:0,
+		2:0,
 		5:0,
 		10:0,
 		25:0
 	};
 	var words = {
 		'1':'penny',
+		'2':'2-center',
 		'5':'nickel',
 		'10':'dime',
 		'25':'quarter'
 	};
 	var words2 = {
 		'1':'pennies',
+		'2':'2-centers',
 		'5':'nickels',
 		'10':'dimes',
 		'25':'quarters'
@@ -51,8 +54,10 @@ function write(array) {
 	}
 	return str;
 }
-var x = findDenominations(available, 100, available[0]);
-console.log(x.length);
+console.time('x');
+var x = findDenominations(available, target, available[0]);
+console.log(x.length + ' combinations');
 for (var i = 0; i < x.length; i++) {
 	console.log(write(x[i]));
 }
+console.timeEnd('x');
