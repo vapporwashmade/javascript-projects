@@ -32,3 +32,4 @@ An object is a collection of key/value pairs similar to a hash. The only differe
 Today, I learned about queues. A queue stores values in a FIFO order. FIFO stands for first in, first out. This means it takes in a value to the end, and pushes the oldest element out from the front. So the first one in is the first one out. An example of a queue is a line of people at a cashier. The first one goes in the line first, and once he finishes, he goes out of the line first.
 
 Queues are useful because they allow two different parts of code to run quickly by themselves, while also letting them interact smoothly. One part of the code can push values to the end of the array, while another part of code takes them out of the front.
+
