@@ -1,8 +1,7 @@
-// TODO: add to this
 class Queue {
 	constructor() {
 		this.length = 0;
-		this.start = null;
+		this.head = null;
 		this.elements = [];
 		this.lengthArray = [0];
 		return this;
@@ -10,16 +9,16 @@ class Queue {
 
 	add(element) {
 		this.elements.push(element);
-		this.start = this.elements[0];
+		this.head = this.elements[0];
 		this.length ++;
 		this.lengthArray.push(this.length);
 	}
 
 	remove() {
 		var x = this.elements.shift();
-		this.start = this.elements[0];
-		if (this.start === undefined) {
-			this.start = null;
+		this.head = this.elements[0];
+		if (this.head === undefined) {
+			this.head = null;
 		}
 		this.length --;
 		this.lengthArray.push(this.length);
