@@ -1,3 +1,4 @@
+// TODO: add constraints
 var available = [25, 10, 5, 1];
 var target = 10;
 target = target.toFixed(2) * 100;
