@@ -1,2 +1,3 @@
-var regex = /([0-2]){1,3}\.([0-2]){1,3}\.([0-2]){1,3}\.([0-2]){1,3}/;
-console.log(regex.test('000.000.000.000'));
+// TODO: make this work
+var regex = /[0-1|2(?=[0-5]]/;
+console.log(regex.test('266'));
