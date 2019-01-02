@@ -1,4 +1,4 @@
-class Queue {
+export class Queue {
 	constructor() {
 		this.length = 0;
 		this.head = null;
@@ -27,6 +27,10 @@ class Queue {
 
 	size() {
 		return this.length;
+	}
+
+	empty() {
+		return this.length === 0;
 	}
 
 	elementAt(pos) {
