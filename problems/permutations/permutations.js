@@ -1,20 +1,22 @@
-var arr = ['a', 'b', 'c'];
+var arr = [1, 2, 3, 4, 5];
 function findPermutations(array) {
 	// BASE CASE
-	var permutations = [];
-	if (array.length === 0) {
-		return [[]];
+	if (array.length === 1) {
+		return [array];
 	}
 	// RECURSIVE CASE
-	// var last = array.pop();
-	// permutations = findPermutations(array);
-	// for (var i = 0; i < permutations.length; i++) {
-	// 	permutations[i].push(last);
-	// }
-	for (var i = 0; i < array.length; i++) {
-		var deleted = array.splice(i, 1);
-		permutations.push(findPermutations(array).push(deleted[0]));
+	var permutations = [];
+	var lastElement = array.pop();
+	var previous = findPermutations(array);
+	for (var i = 0; i < previous.length; i++) {
+		for (var j = 0; j <= previous[i].length; j++) {
+			previous[i].splice(j, 0, lastElement);
+			permutations.push(previous[i].slice());
+			previous[i].splice(j, 1);
+		}
 	}
 	return permutations;
 }
-console.log(findPermutations(arr));
+var x = findPermutations(arr);
+console.log(x.length);
+console.log(x);
