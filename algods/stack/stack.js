@@ -16,15 +16,19 @@ class Stack {
 		var x = this.elements.pop();
 		this.length--;
 		this.top = this.elements[this.length-1];
+		if (this.length === 0) {
+			this.top = null;
+		}
 		return x;
 	}
 
 	size() {
 		return this.length;
 	}
+
+	empty() {
+		return this.length === 0;
+	}
 }
-var stack = new Stack();
-stack.push('one');
-stack.push('two');
-stack.pop();
-console.log(stack);
+
+export default Stack;
