@@ -1,4 +1,4 @@
-var arr = [1, 2, 3, 4, 5];
+var arr = [1, 2, 3, 4];
 function findPermutations(array) {
 	// BASE CASE
 	if (array.length === 1) {
