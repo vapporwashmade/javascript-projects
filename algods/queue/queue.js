@@ -1,4 +1,4 @@
-export class Queue {
+class Queue {
 	constructor() {
 		this.length = 0;
 		this.head = null;
@@ -51,6 +51,3 @@ export class Queue {
 		return sum;
 	}
 }
-
-var queue = new Queue();
-console.log(queue);
