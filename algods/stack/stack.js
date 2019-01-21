@@ -30,5 +30,3 @@ class Stack {
 		return this.length === 0;
 	}
 }
-
-export default Stack;
