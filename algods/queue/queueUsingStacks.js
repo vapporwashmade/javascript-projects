@@ -1,5 +1,31 @@
-// TODO: import not working, make it work
-var Stack = require('../stack/stack.js');
+class Stack {
+	constructor() {
+		this.length = 0;
+		this.top = null;
+		this.elements = [];
+		return this;
+	}
+
+	push(element) {
+		this.elements.push(element);
+		this.length++;
+		this.top = element;
+	}
+
+	pop() {
+		var x = this.elements.pop();
+		this.length--;
+		this.top = this.elements[this.length-1];
+		if (this.length === 0) {
+			this.top = null;
+		}
+		return x;
+	}
+
+	size() {
+		return this.length;
+	}
+}
 
 class queueUsingStacks {
 	constructor() {
@@ -9,18 +35,18 @@ class queueUsingStacks {
 	}
 
 	add(element) {
-		this.stack1.elements.push(element);
+		this.stack1.push(element);
 		this.length++;
 	}
 	remove() {
-		if (!this.stack2.empty()) {
+		if (this.stack2.length !== 0) {
 			this.length--;
 			return this.stack2.pop();
 		}
-		if (this.stack1.empty()) {
-			throw new ReferenceError('There are no elements in the stack!');
+		if (this.stack1.length === 0) {
+			throw new ReferenceError('There are no elements in the queue!');
 		}
-		while (!this.stack1.empty()) {
+		while (this.stack1.length !== 0) {
 			this.stack2.push(this.stack1.pop());
 		}
 		this.length--;
@@ -30,12 +56,3 @@ class queueUsingStacks {
 		return this.length;
 	}
 }
-var _queue = new queueUsingStacks();
-_queue.add(1);
-console.log(_queue);
-_queue.add(2);
-console.log(_queue);
-_queue.add(3);
-console.log(_queue);
-_queue.remove();
-console.log(_queue);
