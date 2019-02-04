@@ -5,6 +5,7 @@ class CircularBuffer {
         this.array = [];
         this.capacity = capacity;
         this.lengthArray = [];
+        this.array[this.capacity - 1] = null;
     }
 
     isEmpty() {
@@ -16,23 +17,23 @@ class CircularBuffer {
     }
 
     add(element) {
-        if (! this.isFull()) {
+        if (!this.isFull()) {
             this.array[this.tail % this.capacity] = element;
-            this.tail ++;
+            this.tail++;
             this.lengthArray.push(this.length());
             return;
         }
-        throw new ReferenceError('The circular buffer is full!');
+        throw new RangeError('The circular buffer is full!');
     }
 
     remove() {
-        if (! this.isEmpty()) {
+        if (!this.isEmpty()) {
             var e = this.array[this.head];
-            this.head ++;
+            this.head++;
             this.lengthArray.push(this.length());
             return e;
         }
-        throw new ReferenceError('The circular buffer is empty!');
+        throw new RangeError('The circular buffer is empty!');
     }
 
     length() {
@@ -48,15 +49,29 @@ class CircularBuffer {
     }
 
     grow(number) {
-
+        for (var i = 0; i < number; i++) {
+            this.array.splice(this.head - 1, 0, null);
+        }
+        this.head += number;
+        this.tail += number;
+        this.capacity += number;
     }
 
     shrink(number) {
-
+        if (number > this.capacity - this.length()) {
+            throw new RangeError('Cannot shrink more elements than the length!')
+        }
+        for (var i = 0; i < number; i++) {
+            this.array.splice(this.head - 1, 1);
+        }
+        // this.head -= number;
+        // this.tail -= number;
+        this.capacity -= number;
     }
 }
 var circularBuffer = new CircularBuffer(10);
+circularBuffer.add('b');
 circularBuffer.add('a');
 circularBuffer.add('b');
-circularBuffer.remove();
 console.log(circularBuffer.isEmpty(), circularBuffer.isFull(), circularBuffer.length(), circularBuffer.averageLength());
+console.log(circularBuffer.array, circularBuffer.head, circularBuffer.tail, circularBuffer.capacity);
