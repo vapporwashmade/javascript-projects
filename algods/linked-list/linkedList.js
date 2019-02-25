@@ -96,19 +96,19 @@ class LinkedList {
         return undefined;
     }
 
-    reverse(node) {
+    reverse_Recursive(node) {
          // BASE CASE
         if (node.ref === undefined) {
             return node;
         }
-            // RECURSIVE CASE4
-        var prevNode = this.reverse(node.ref);
+            // RECURSIVE CASE
+        var prevNode = this.reverse_Recursive(node.ref);
         prevNode.ref = node;
         prevNode.ref.ref = undefined;
-        return prevNode.ref;
+        return prevNode;
     }
 }
 var linkedList = new LinkedList([1, 2, 3, 4, 5]);
 console.log(linkedList.print());
-console.log(linkedList.reverse(linkedList.list));
+console.log(linkedList.reverse_Recursive(linkedList.list));
 console.log(linkedList.print());
