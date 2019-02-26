@@ -118,6 +118,7 @@ class LinkedList {
             node = next;
             next = node.ref;
         }
+        this.head = previous;
         return this.head;
     }
 
