@@ -1,25 +1,25 @@
 // operations: inserting element, deleting element, searching
-// TODO: reverse method, sort method
+// TODO: reverse method, sort method, slice method, traverse method
 class LinkedList {
     constructor(array) {
         var a = array.reverse();
-        this.list = undefined;
+        this.head = undefined;
         for (var i = 0; i < a.length; i++) {
-            this.list = {
-                val: a[i],
-                ref: this.list,
+            this.head = {
+                val : a[i], ref : this.head,
                 next: function () {
                     return this.ref;
                 },
                 value: function () {
                     return this.val;
-                }
+                },
+
             };
         }
     }
 
     predecessor(pos) {
-        var pred = this.list;
+        var pred = this.head;
         for (var i = 1; i < pos; i++) {
             pred = pred.next();
         }
@@ -28,7 +28,7 @@ class LinkedList {
 
     length() {
         var len = 0;
-        var check = this.list;
+        var check = this.head;
         while (check !== undefined) {
             check = check.next();
             len++;
@@ -37,11 +37,11 @@ class LinkedList {
     }
 
     next() {
-        return this.list.next();
+        return this.head.next();
     }
 
     value() {
-        return this.list.value();
+        return this.head.value();
     }
 
     insert(pos, elem) {
@@ -64,9 +64,8 @@ class LinkedList {
     }
 
     prepend(elem) {
-        this.list = {
-            val: elem,
-            ref: this.list,
+        this.head = {
+            val : elem, ref : this.head,
             next: function () {
                 return this.ref;
             },
@@ -77,7 +76,7 @@ class LinkedList {
     }
     print() {
         var toPrint = [];
-        var node = this.list;
+        var node = this.head;
         for (var i = 0; i < this.length(); i++) {
             toPrint.push(node.val);
             node = node.ref;
@@ -86,7 +85,7 @@ class LinkedList {
     }
 
     search(val) {
-        var node = this.list;
+        var node = this.head;
         while (node !== undefined) {
             if (node.val === val) {
                 return node;
@@ -97,18 +96,44 @@ class LinkedList {
     }
 
     reverse_Recursive(node) {
-         // BASE CASE
+        // BASE CASE
         if (node.ref === undefined) {
             return node;
         }
-            // RECURSIVE CASE
-        var prevNode = this.reverse_Recursive(node.ref);
-        prevNode.ref = node;
-        prevNode.ref.ref = undefined;
-        return prevNode;
+        // RECURSIVE CASE
+        var head = this.reverse_Recursive(node.ref);
+        node.ref.ref = node;
+        node.ref = undefined;
+        this.head = head;
+        return this.head;
+    }
+
+    reverse_Iterative() {
+        var node = this.head;
+        var previous = undefined;
+        var next = node.ref;
+        while (node !== undefined) {
+            node.ref = previous;
+            previous = node;
+            node = next;
+            next = node.ref;
+        }
+        return this.head;
+    }
+
+    traverse(func) {
+        var node = this.head;
+        while (node !== undefined) {
+            func(node);
+            node = node.ref;
+        }
+    }
+
+    slice() {
+
     }
 }
 var linkedList = new LinkedList([1, 2, 3, 4, 5]);
 console.log(linkedList.print());
-console.log(linkedList.reverse_Recursive(linkedList.list));
+console.log(linkedList.reverse_Iterative());
 console.log(linkedList.print());
