@@ -111,12 +111,12 @@ class LinkedList {
     reverse_Iterative() {
         var node = this.head;
         var previous = undefined;
-        var next = node.ref;
+        var next;
         while (node !== undefined) {
+            next = node.ref;
             node.ref = previous;
             previous = node;
             node = next;
-            next = node.ref;
         }
         this.head = previous;
         return this.head;
