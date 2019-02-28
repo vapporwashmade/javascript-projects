@@ -97,8 +97,8 @@ class LinkedList {
 
     reverse_Recursive(node) {
         // BASE CASE
-        if (node.ref === undefined) {
-            return node;
+        if (node === undefined) {
+            return this.head;
         }
         // RECURSIVE CASE
         var head = this.reverse_Recursive(node.ref);
@@ -136,5 +136,5 @@ class LinkedList {
 }
 var linkedList = new LinkedList([1, 2, 3, 4, 5]);
 console.log(linkedList.print());
-console.log(linkedList.reverse_Iterative());
+console.log(linkedList.reverse_Recursive(linkedList.head));
 console.log(linkedList.print());
