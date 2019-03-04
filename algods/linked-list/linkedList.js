@@ -69,6 +69,7 @@ class LinkedList {
             };
             return;
         }
+
         pred.ref = {
             val : elem,
             ref : pred.next(),
