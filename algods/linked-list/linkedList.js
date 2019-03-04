@@ -69,7 +69,6 @@ class LinkedList {
             };
             return;
         }
-
         pred.ref = {
             val : elem,
             ref : pred.next(),
@@ -156,7 +155,19 @@ class LinkedList {
     }
 
     slice(start, end) {
-
+        var node = this.head;
+        var slice = new LinkedList();
+        var it = 0;
+        while (it < start) {
+            it ++;
+            node = node.ref;
+        }
+        while (it < end) {
+            slice.insert(slice.length(), node.val);
+            node = node.ref;
+            it ++;
+        }
+        return slice;
     }
 
     cutSlice(start, end) {
