@@ -1,7 +1,10 @@
 // operations: inserting element, deleting element, searching
-// TODO: reverse method, sort method, slice method, traverse method
+// TODO: reverse_Recursive bug, sort method, slice method, cutSlice method
 class LinkedList {
     constructor(array) {
+        if (array === undefined) {
+            array = [];
+        }
         var a = array.reverse();
         this.head = undefined;
         for (var i = 0; i < a.length; i++) {
@@ -16,6 +19,16 @@ class LinkedList {
 
             };
         }
+    }
+
+    findNode(pos) {
+        var it = 0;
+        var node = this.head;
+        while (it < pos) {
+            it ++;
+            node = node.ref;
+        }
+        return node;
     }
 
     predecessor(pos) {
@@ -46,6 +59,16 @@ class LinkedList {
 
     insert(pos, elem) {
         var pred = this.predecessor(pos);
+        if (pred === undefined) {
+            this.head = {
+                val : elem, ref : undefined, next : function () {
+                    return this.ref;
+                }, value : function () {
+                    return this.val;
+                }
+            };
+            return;
+        }
         pred.ref = {
             val : elem,
             ref : pred.next(),
@@ -74,6 +97,7 @@ class LinkedList {
             }
         };
     }
+
     print() {
         var toPrint = [];
         var node = this.head;
@@ -130,11 +154,28 @@ class LinkedList {
         }
     }
 
-    slice() {
+    slice(start, end) {
 
+    }
+
+    cutSlice(start, end) {
+        var node = this.head;
+        var it = 1;
+        while (it < start) {
+            it ++;
+            node = node.ref;
+        }
+        var startPred = node;
+        while (it < end) {
+            it ++;
+            node = node.ref;
+        }
+        var endNode = node.ref;
+        node.ref = undefined;
+        var slice = startPred.ref;
+        startPred.ref = endNode;
+        return slice;
     }
 }
 var linkedList = new LinkedList([1, 2, 3, 4, 5]);
-console.log(linkedList.print());
-console.log(linkedList.reverse_Recursive(linkedList.head));
-console.log(linkedList.print());
+console.log(linkedList.slice(0, 0).slice());
