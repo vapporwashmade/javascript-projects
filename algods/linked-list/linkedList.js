@@ -1,5 +1,5 @@
 // operations: inserting element, deleting element, searching
-// TODO: reverse_Recursive bug, sort method, cutSlice method
+// TODO: reverse_Recursive bug, sort method
 class LinkedList {
     constructor(array) {
         if (array === undefined) {
@@ -190,10 +190,14 @@ class LinkedList {
         }
         var endNode = node.ref;
         node.ref = undefined;
+        if (startPred === this.head) {
+            var slice = startPred;
+            this.head = endNode;
+            return slice;
+        }
         var slice = startPred.ref;
         startPred.ref = endNode;
         return slice;
     }
 }
 var linkedList = new LinkedList([1, 2, 3, 4, 5]);
-console.log(linkedList.slice(1).print());
