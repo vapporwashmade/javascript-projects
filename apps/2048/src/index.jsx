@@ -2,24 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
-var styles = {
-    'backgroundColor': "238, 228, 218, 0.35",
-    'width': '100',
-    'height': '100'
-};
+import  styles from './styles';
 
 class Number extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            number: this.props.number,
-            squares: null
+            number: this.props.number
         };
     }
 
     render() {
-        return (<div style={styles}>
-            <p>2</p>
+        return (<div style={this.state.number === undefined ? styles.emptyStyle : styles.numberStyle}>
+            <p>{this.state.number}</p>
         </div>);
     }
 }
@@ -39,15 +34,16 @@ class Table extends React.Component {
             squares.push(null);
         }
         i = Math.floor(Math.random() * 8);
-        squares[i] = <Number number=>;
+        squares[i] = 2;
         i = Math.floor(Math.random() * 8) + 8;
-        squares[i] = <Number number={2}>;
+        squares[i] = 2;
         this.setState({
             squares: squares
         });
     }
+
     componentWillMount() {
-        this.create()
+        this.create();
     }
 
     render() {
