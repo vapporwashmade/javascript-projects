@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
-import  styles from './styles';
+import styles from './styles';
 
 class Number extends React.Component {
     constructor(props) {
@@ -51,28 +51,28 @@ class Table extends React.Component {
                 <table>
                     <tbody>
                         <tr>
-                            <td>{this.state.squares[0]}</td>
-                            <td>{this.state.squares[1]}</td>
-                            <td>{this.state.squares[2]}</td>
-                            <td>{this.state.squares[3]}</td>
+                            <td><Number number={this.state.squares[0]}/></td>
+                            <td><Number number={this.state.squares[1]}/></td>
+                            <td><Number number={this.state.squares[2]}/></td>
+                            <td><Number number={this.state.squares[3]}/></td>
                         </tr>
                         <tr>
-                            <td>{this.state.squares[4]}</td>
-                            <td>{this.state.squares[5]}</td>
-                            <td>{this.state.squares[6]}</td>
-                            <td>{this.state.squares[7]}</td>
+                            <td><Number number={this.state.squares[4]}/></td>
+                            <td><Number number={this.state.squares[5]}/></td>
+                            <td><Number number={this.state.squares[6]}/></td>
+                            <td><Number number={this.state.squares[7]}/></td>
                         </tr>
                         <tr>
-                            <td>{this.state.squares[8]}</td>
-                            <td>{this.state.squares[9]}</td>
-                            <td>{this.state.squares[10]}</td>
-                            <td>{this.state.squares[11]}</td>
+                            <td><Number number={this.state.squares[8]}/></td>
+                            <td><Number number={this.state.squares[9]}/></td>
+                            <td><Number number={this.state.squares[10]}/></td>
+                            <td><Number number={this.state.squares[11]}/></td>
                         </tr>
                         <tr>
-                            <td>{this.state.squares[12]}</td>
-                            <td>{this.state.squares[13]}</td>
-                            <td>{this.state.squares[14]}</td>
-                            <td>{this.state.squares[15]}</td>
+                            <td><Number number={this.state.squares[12]}/></td>
+                            <td><Number number={this.state.squares[13]}/></td>
+                            <td><Number number={this.state.squares[14]}/></td>
+                            <td><Number number={this.state.squares[15]}/></td>
                         </tr>
                     </tbody>
                 </table>
