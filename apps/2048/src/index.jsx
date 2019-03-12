@@ -2,10 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
+var styles = {
+    'backgroundColor': "238, 228, 218, 0.35",
+    'width': '100',
+    'height': '100'
+};
 
-class Two extends React.Component {
+class Number extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            number: this.props.number
+        };
+    }
+
     render() {
-        return (<div>
+        return (<div style={styles}>
             <p>2</p>
         </div>);
     }
@@ -17,15 +29,24 @@ class Table extends React.Component {
         this.state = {
             squares: []
         };
+        this.create = this.create.bind(this);
+    }
+
+    create() {
         var squares = [];
         for (var i = 0; i < 16; i++) {
             squares.push(null);
         }
         i = Math.floor(Math.random() * 8);
-        squares[i] = 2;
+        squares[i] = <Number number=>;
         i = Math.floor(Math.random() * 8) + 8;
-        squares[i] = 2;
-        this.state.squares = squares;
+        squares[i] = <Number number={2}>;
+        this.setState({
+            squares: squares
+        });
+    }
+    componentWillMount() {
+        this.create()
     }
 
     render() {
