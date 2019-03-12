@@ -38,9 +38,9 @@ class Table extends React.Component {
             squares.push(null);
         }
         i = Math.floor(Math.random() * 8);
-        squares[i] = <Number number=>;
+        squares[i] = 2;
         i = Math.floor(Math.random() * 8) + 8;
-        squares[i] = <Number number={2}>;
+        squares[i] = 2;
         this.setState({
             squares: squares
         });
