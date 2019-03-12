@@ -12,7 +12,8 @@ class Number extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            number: this.props.number
+            number: this.props.number,
+            squares: null
         };
     }
 
