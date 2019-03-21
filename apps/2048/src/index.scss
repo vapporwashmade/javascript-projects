@@ -12,3 +12,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.table {
+  border-width: medium;
+  border-color: blue;
+  border-style: solid;
+}
+
+.number {
+  p {
+    text-align: center;
+    font-family: "Khmer OS", serif;
+    color: white;
+    font-size: 48px;
+    margin: 0;
+    line-height: 100px;
+  }
+  width: 100px;
+  height: 100px;
+  align-content: center;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+}
+
+.empty {
+  width:  100px;
+  height: 100px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  p {
+    margin: 0;
+  }
+}
+
+.td {
+  background-color: #000;
+  border: 1px solid #000;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
