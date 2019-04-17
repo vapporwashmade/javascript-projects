@@ -2,14 +2,6 @@
 // if it is, reads the decimal number
 // if not, it returns
 function f(e) {
-	document.getElementById('1').textContent = readNum('3467');
-	document.getElementById('2').textContent = readNum('-46');
-	document.getElementById('3').textContent = readNum('457.19');
-	document.getElementById('4').textContent = readNum('-100.8936364636');
-	document.getElementById('5').textContent = readNum('1000000');
-	document.getElementById('6').textContent = readNum('-.6');
-	document.getElementById('7').textContent = readNum('.69');
-	document.getElementById('8').textContent = readNum('111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
 	if (e.key === 'Enter') {  //checks whether the pressed key is "Enter"
 		readNum(document.getElementById('num').value);
 	}
@@ -168,11 +160,5 @@ function readNum(num) {
 		// }
 	}
 	document.getElementById('read').textContent = reading;
-	var talkify = require('../../node_modules/talkify-tts');
-	var player = new talkify.Html5Player();
-	var t = reading.split('');
-	for (i = 0; i < t.length; i++) {
-		player.playAudio(t[i]);
-	}
 	return reading;
 }

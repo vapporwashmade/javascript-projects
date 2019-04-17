@@ -23,4 +23,4 @@ var a = [];
 for (var i = 0; i < 100; i++) {
 	a.push(i+1);
 }
-console.log(binarySearchRecursive(37, a));
+console.log(binarySearchRecursive(45, a));

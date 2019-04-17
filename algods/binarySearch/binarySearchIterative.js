@@ -22,7 +22,8 @@ function binarySearchIterative(target, a) {
 	return -1;
 }
 var a = [];
-for (var i = 0; i < 100; i+=2) {
+for (var i = -100; i < 100; i+=2) {
 	a.push(i+1);
 }
-console.log(binarySearchIterative(100, a));
+console.log(binarySearchIterative(37, a));
+console.log(a.indexOf(37));
