@@ -2,9 +2,7 @@
 // TODO: sort method
 class LinkedList {
     constructor(array) {
-        if (array === undefined) {
-            array = [];
-        }
+        array = array || [];
         var a = array.reverse();
         this.head = undefined;
         for (var i = 0; i < a.length; i++) {
