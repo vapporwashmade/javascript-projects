@@ -64,14 +64,16 @@ class CircularBuffer {
         for (var i = 0; i < number; i++) {
             this.array.splice(this.head - 1, 1);
         }
-        // this.head -= number;
-        // this.tail -= number;
+        this.head -= number;
+        this.tail -= number;
         this.capacity -= number;
     }
 }
 var circularBuffer = new CircularBuffer(10);
-circularBuffer.add('b');
-circularBuffer.add('a');
-circularBuffer.add('b');
+for (var i = 0; i < 3; i ++) {
+    circularBuffer.add(i);
+}
+circularBuffer.grow(10);
+circularBuffer.shrink(10);
 console.log(circularBuffer.isEmpty(), circularBuffer.isFull(), circularBuffer.length(), circularBuffer.averageLength());
 console.log(circularBuffer.array, circularBuffer.head, circularBuffer.tail, circularBuffer.capacity);
