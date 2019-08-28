@@ -26,10 +26,10 @@ var b = ['A',
     'X',
     'Y',
     'Z' ];
-var str = "c'est ma mere";
+var str = "msvvy pz ybqb'z tvza mhcvypal lclua";
 var newstr = "";
 var letters = str.split("");
-var rot = 52;
+var rot = 53;
 if (rot % 26 === 0) {
     console.log(str);
     process.exit(1);
