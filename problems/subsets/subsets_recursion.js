@@ -19,7 +19,7 @@ function f(a) {
 	}
 	return subsets;
 }
-var a = [9, 84, 89, 2, 1, 5, 7];
+var a = ["d", "a", "s", "d"];
 var n = a.length;
 console.log(f(a));
 console.log('number of subsets: '+ (2 ** n));

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elevators</title>
+    <link rel="stylesheet" href="elevator-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <script src="elevator.js"></script>
+    <div id="elevator-container">
+        <div id="4">
+            <p>4th Floor</p>
+            <p class="elevator none">Elevator</p>
+            <button onclick="down(this)">&#11167;</button>
+        </div>
+        <div id="3">
+            <p>3rd Floor</p>
+            <p class="elevator none">Elevator</p>
+            <button onclick="up(this)">&#11165;</button>
+            <button onclick="down(this)">&#11167;</button>
+        </div>
+        <div id="2">
+            <p>2nd Floor</p>
+            <p class="elevator none">Elevator</p>
+            <button onclick="up(this)">&#11165;</button>
+            <button onclick="down(this)">&#11167;</button>
+        </div>
+        <div id="1">
+            <p>1st Floor</p>
+            <p class="elevator none">Elevator</p>
+            <button onclick="up(this)">&#11165;</button>
+            <button onclick="down(this)">&#11167;</button>
+        </div>
+        <div id="0">
+            <p>Ground Floor</p>
+            <p class="elevator active">Elevator</p>
+            <button onclick="up(this)">&#11165;</button>
+        </div>
+    </div>
+    <p id="upQueue"></p>
+    <p id="downQueue"></p>
+</body>
+</html>

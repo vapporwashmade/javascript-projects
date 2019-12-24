@@ -1,3 +1,5 @@
+var numberReader = require("../../apps/decimalNumberReader/decimalNumberReader");
+readNum(    );
 // This program creates the poem "Twelve Days of Christmas" using only the components of the poem, e.g., "A partridge in a pear tree"
 // It is possible to change the components by changing the strings inside the 'poem_components' array
 const poem_components = [
