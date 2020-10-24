@@ -1,0 +1,24 @@
+.tsquare {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  margin: 0;
+}
+
+.grid-container {
+  border-spacing: 0;
+  border: 1px solid black;
+}
+
+.dead {
+  background-color: white;
+}
+
+.live {
+  background-color: black;
+}
+
+.control-btn {
+  width: 80px;
+  height: 40px;
+}
