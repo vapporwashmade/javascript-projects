@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Play Battleship!</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Battleship</h1>
+    <button>Start Game</button><br>
+    <div id="screen">
+        <table id="board">
+            <tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr><tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr><tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr><tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr><tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr><tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr><tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr><tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr><tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr><tr>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+                <td><button class="space"></button></td>
+            </tr>
+        </table>
+    </div>
+    <div id="placer">
+        <p>Carrier</p>
+        <button class="choose" id="carrier-c">Choose Carrier</button>
+        <button class="place" id="carrier">Place Carrier</button>
+        <br>
+        <p>Battleship</p>
+        <button class="choose" id="battleship-c">Choose Battleship</button>
+        <button class="place" id="battleship">Place Battleship</button>
+        <br>
+        <p>Submarine</p>
+        <button class="choose" id="submarine-c">Choose Submarine</button>
+        <button class="place" id="submarine">Place Submarine</button>
+        <br>
+        <p>Scouter</p>
+        <button class="choose" id="scouter-c">Choose Scouter</button>
+        <button class="place" id="scouter">Place Scouter</button>
+        <br>
+        <p>Patrol Ship</p>
+        <button class="choose" id="patrol-ship-c">Choose Patrol Ship</button>
+        <button class="place" id="patrol-ship">Place Patrol Ship</button>
+    </div>
+</body>
+</html>
