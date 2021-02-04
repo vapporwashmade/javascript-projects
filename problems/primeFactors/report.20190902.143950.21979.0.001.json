@@ -1,0 +1,332 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20190902.143950.21979.0.001.json",
+    "dumpEventTime": "2019-09-02T14:39:50Z",
+    "dumpEventTimeStamp": "1567415390957",
+    "processId": 21979,
+    "cwd": "/home/apoorv/javascript-projects/problems/primeFactors",
+    "commandLine": [
+      "/usr/bin/node",
+      "/home/apoorv/javascript-projects/problems/primeFactors/prime_factors_recursive.js"
+    ],
+    "nodejsVersion": "v11.15.0",
+    "glibcVersionRuntime": "2.23",
+    "glibcVersionCompiler": "2.12",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "11.15.0",
+      "v8": "7.0.276.38-node.19",
+      "uv": "1.27.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "67",
+      "nghttp2": "1.37.0",
+      "napi": "4",
+      "llhttp": "1.1.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1b",
+      "cldr": "34.0",
+      "icu": "63.1",
+      "tz": "2018e",
+      "unicode": "11.0"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v11.15.0/node-v11.15.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v11.15.0/node-v11.15.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "4.4.0-154-generic",
+    "osVersion": "#181-Ubuntu SMP Tue Jun 25 05:29:03 UTC 2019",
+    "osMachine": "x86_64",
+    "host": "rebirth"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000a702fd",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string const&, v8::Local<v8::String>) [/usr/bin/node]"
+    },
+    {
+      "pc": "0x000000000095ccb3",
+      "symbol": "node::OnFatalError(char const*, char const*) [/usr/bin/node]"
+    },
+    {
+      "pc": "0x0000000000b3dbde",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [/usr/bin/node]"
+    },
+    {
+      "pc": "0x0000000000b3de14",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [/usr/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f3ce52",
+      "symbol": " [/usr/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f4cf5f",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment) [/usr/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f16df6",
+      "symbol": "v8::internal::Factory::AllocateRawArray(int, v8::internal::PretenureFlag) [/usr/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f177ba",
+      "symbol": "v8::internal::Factory::NewFixedArrayWithFiller(v8::internal::Heap::RootListIndex, int, v8::internal::Object*, v8::internal::PretenureFlag) [/usr/bin/node]"
+    },
+    {
+      "pc": "0x0000000000f17e87",
+      "symbol": "v8::internal::Factory::NewUninitializedFixedArray(int, v8::internal::PretenureFlag) [/usr/bin/node]"
+    },
+    {
+      "pc": "0x0000000000ec530f",
+      "symbol": " [/usr/bin/node]"
+    },
+    {
+      "pc": "0x0000000001195b4d",
+      "symbol": "v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*) [/usr/bin/node]"
+    },
+    {
+      "pc": "0x00002b4b26dcfc5d",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 608714752,
+    "totalCommittedMemory": 605889568,
+    "usedMemory": 604118232,
+    "availableMemory": 920372872,
+    "memoryLimit": 1526909922,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 42224,
+        "capacity": 515584,
+        "used": 33520,
+        "available": 482064
+      },
+      "new_space": {
+        "memorySize": 1048576,
+        "committedMemory": 17408,
+        "capacity": 1031168,
+        "used": 0,
+        "available": 1031168
+      },
+      "old_space": {
+        "memorySize": 2297856,
+        "committedMemory": 1452992,
+        "capacity": 2254232,
+        "used": 1397792,
+        "available": 856440
+      },
+      "code_space": {
+        "memorySize": 1048576,
+        "committedMemory": 822176,
+        "capacity": 538784,
+        "used": 538784,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 536576,
+        "committedMemory": 295888,
+        "capacity": 225120,
+        "used": 225120,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 603258880,
+        "committedMemory": 603258880,
+        "capacity": 1519926216,
+        "used": 601923016,
+        "available": 918003200
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 1.208,
+    "kernelCpuSeconds": 0.688,
+    "cpuConsumptionPercent": 189.6,
+    "maxRss": 1165291520,
+    "pageFaults": {
+      "IORequired": 0,
+      "IONotRequired": 443315
+    },
+    "fsActivity": {
+      "reads": 0,
+      "writes": 0
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 0.888,
+    "kernelCpuSeconds": 0.608,
+    "cpuConsumptionPercent": 149.6,
+    "fsActivity": {
+      "reads": 0,
+      "writes": 0
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "PATH": "/home/apoorv/bin:/home/apoorv/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "XAUTHORITY": "/home/apoorv/.Xauthority",
+    "INFINALITY_FT_AUTOHINT_VERTICAL_STEM_DARKEN_STRENGTH": "25",
+    "XMODIFIERS": "@im=ibus",
+    "XDG_DATA_DIRS": "/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop",
+    "GDMSESSION": "ubuntu",
+    "MANDATORY_PATH": "/usr/share/gconf/ubuntu.mandatory.path",
+    "INFINALITY_FT_AUTOHINT_SNAP_STEM_HEIGHT": "0",
+    "INFINALITY_FT_STEM_FITTING_STRENGTH": "0",
+    "GTK_IM_MODULE": "ibus",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:abstract=/tmp/dbus-3Iiy5yo0rK",
+    "DEFAULTS_PATH": "/usr/share/gconf/ubuntu.default.path",
+    "XDG_CURRENT_DESKTOP": "Unity",
+    "INFINALITY_FT_WINDOWS_STYLE_SHARPENING_STRENGTH": "0",
+    "INFINALITY_FT_AUTOHINT_INCREASE_GLYPH_HEIGHTS": "false",
+    "COLORTERM": "true",
+    "UPSTART_SESSION": "unix:abstract=/com/ubuntu/upstart-session/1002/4192",
+    "QT4_IM_MODULE": "xim",
+    "QT_LINUX_ACCESSIBILITY_ALWAYS_ON": "1",
+    "INFINALITY_FT_CONTRAST": "15",
+    "LOGNAME": "apoorv",
+    "JOB": "unity-settings-daemon",
+    "PWD": "/home/apoorv/javascript-projects/problems/primeFactors",
+    "IM_CONFIG_PHASE": "1",
+    "INFINALITY_FT_USE_KNOWN_SETTINGS_ON_SELECTED_FONTS": "false",
+    "INFINALITY_FT_BOLD_EMBOLDEN_X_VALUE": "0",
+    "LANGUAGE": "en_US",
+    "SHELL": "/usr/bin/zsh",
+    "UNITY_HAS_3D_SUPPORT": "true",
+    "GIO_LAUNCHED_DESKTOP_FILE": "/home/apoorv/.local/share/applications/jetbrains-webstorm.desktop",
+    "GTK2_MODULES": "overlay-scrollbar",
+    "INSTANCE": "",
+    "OLDPWD": "/home/apoorv/Applications/unpacked/WebStorm-192.6262.59/bin",
+    "GNOME_DESKTOP_SESSION_ID": "this-is-deprecated",
+    "UPSTART_INSTANCE": "",
+    "GTK_MODULES": "canberra-gtk-module:canberra-gtk-module:gail:atk-bridge:unity-gtk-module",
+    "CLUTTER_IM_MODULE": "xim",
+    "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session1",
+    "COMPIZ_BIN_PATH": "/usr/bin/",
+    "SESSIONTYPE": "gnome-session",
+    "XDG_SESSION_DESKTOP": "ubuntu",
+    "SHLVL": "0",
+    "INFINALITY_FT_GLOBAL_EMBOLDEN_X_VALUE": "0",
+    "INFINALITY_FT_USE_VARIOUS_TWEAKS": "true",
+    "FORCE_COLOR": "true",
+    "COMPIZ_CONFIG_PROFILE": "ubuntu",
+    "QT_IM_MODULE": "ibus",
+    "UPSTART_JOB": "unity7",
+    "INFINALITY_FT_BRIGHTNESS": "-10",
+    "ELECTRON_NO_ATTACH_CONSOLE": "true",
+    "XDG_CONFIG_DIRS": "/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg",
+    "LANG": "en_US.UTF-8",
+    "GNOME_KEYRING_CONTROL": "",
+    "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+    "DEBUG_COLORS": "true",
+    "INFINALITY_FT_GRAYSCALE_FILTER_STRENGTH": "0",
+    "XDG_SESSION_ID": "c4",
+    "XDG_SESSION_TYPE": "x11",
+    "npm_config_color": "always",
+    "DISPLAY": ":0",
+    "MOCHA_COLORS": "1",
+    "INFINALITY_FT_STEM_SNAPPING_SLIDING_SCALE": "0",
+    "UNITY_DEFAULT_PROFILE": "unity",
+    "INFINALITY_FT_AUTOHINT_HORIZONTAL_STEM_DARKEN_STRENGTH": "10",
+    "NODE_PATH": "/usr/lib/nodejs:/usr/share/javascript",
+    "INFINALITY_FT_GAMMA_CORRECTION": "1000 80",
+    "GDM_LANG": "en_US",
+    "XDG_GREETER_DATA_DIR": "/var/lib/lightdm-data/apoorv",
+    "UPSTART_EVENTS": "xsession started",
+    "GPG_AGENT_INFO": "/home/apoorv/.gnupg/S.gpg-agent:0:1",
+    "DESKTOP_SESSION": "ubuntu",
+    "SESSION": "ubuntu",
+    "USER": "apoorv",
+    "XDG_MENU_PREFIX": "gnome-",
+    "GIO_LAUNCHED_DESKTOP_FILE_PID": "5323",
+    "QT_ACCESSIBILITY": "1",
+    "INFINALITY_FT_FILTER_PARAMS": "11 22 38 22 11",
+    "SSH_AUTH_SOCK": "/run/user/1002/keyring/ssh",
+    "XDG_SEAT": "seat0",
+    "INFINALITY_FT_BOLD_EMBOLDEN_Y_VALUE": "0",
+    "INFINALITY_FT_STEM_ALIGNMENT_STRENGTH": "0",
+    "INFINALITY_FT_FRINGE_FILTER_STRENGTH": "0",
+    "INFINALITY_FT_CHROMEOS_STYLE_SHARPENING_STRENGTH": "0",
+    "QT_QPA_PLATFORMTHEME": "appmenu-qt5",
+    "INFINALITY_FT_GLOBAL_EMBOLDEN_Y_VALUE": "0",
+    "XDG_VTNR": "7",
+    "XDG_RUNTIME_DIR": "/run/user/1002",
+    "HOME": "/home/apoorv",
+    "GNOME_KEYRING_PID": ""
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 65536,
+      "hard": 65536
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 1048576,
+      "hard": 1048576
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 31619,
+      "hard": 31619
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "/lib/x86_64-linux-gnu/libdl.so.2",
+    "/lib/x86_64-linux-gnu/librt.so.1",
+    "/usr/lib/x86_64-linux-gnu/libstdc++.so.6",
+    "/lib/x86_64-linux-gnu/libm.so.6",
+    "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/lib/x86_64-linux-gnu/libpthread.so.0",
+    "/lib/x86_64-linux-gnu/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2"
+  ]
+}
