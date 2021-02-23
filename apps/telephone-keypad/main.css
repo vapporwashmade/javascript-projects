@@ -1,0 +1,41 @@
+.flex-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.rowspan {
+    flex-basis: 50%;
+}
+
+#keypad {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid black;
+    width: fit-content;
+}
+
+.keypad-row {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.keypad-cell {
+    display: flex;
+    flex-flow: column nowrap;
+    border: black 1px solid;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+}
+.keypad-letter-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.keypad-letter {
+    margin: 2px;
+}

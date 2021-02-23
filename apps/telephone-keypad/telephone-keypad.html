@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>The Telephone Keypad Problem</title>
+    <link rel="stylesheet" href="main.css">
     <!--<style>-->
         <!--#generated {-->
             <!--font-size: 20px;-->
@@ -31,18 +32,127 @@
         <!--}-->
     <!--</style>-->
 </head>
-<body>
-    <h1 id="phonenumberkeypad">Check if a phone number has an mnemonic</h1>
-    <
-    <p>Type in a phone number (or even any number) and click Check</p>
-    <label for="phonenumber"></label><input type="text" id="phonenumber">
+<body onload="construct_nummap()">
     <script src="telephone-keypad.js"></script>
     <script src="words.js"></script>
-    <button onclick="findnumber(document.getElementById('phonenumber').value)">Check</button>
-    <p id="aftertext"></p>
-    <h1 id="telephonekeypad">Find telephone numbers with mnemonics</h1>
-    <input id="numdigits">
-    <button onclick="generate()">Generate</button>
-    <p id="generated"></p>
+    <div class="full-container">
+        <h1>Telephone Keypad</h1>
+        <div class="flex-container">
+            <div class="row">
+                <div id="about-program" class="rowspan">
+                    <h2>About this program</h2>
+                    <p>This program uses a telephone keypad to do a variety of functions involving English mnemonics, which are
+                        learning techniques (words in this case) that can be used to help remember anything. Acronyms or poems are forms
+                        of mnemonics. In this case</p>
+                    <p>For example: If you wanted to remember</p>
+                </div>
+                <div id="about-keypad" class="rowspan">
+                    <h2>About telephone keypad</h2>
+                    <p>What is a telephone keypad?</p>
+                    <p>A telephone keypad is a keypad attached to a push-button device, with one number mapping to one or more letters.</p>
+                    <p>Here is an example of a usual telephone keypad:</p>
+                    <div id="keypad">
+                        <div class="keypad-row">
+                            <div class="keypad-cell">
+                                <div>1</div>
+                            </div>
+                            <div class="keypad-cell">
+                                <div>2</div>
+                                <div class="keypad-letter-container">
+                                    <div class="keypad-letter">A</div>
+                                    <div class="keypad-letter">B</div>
+                                    <div class="keypad-letter">C</div>
+                                </div>
+                            </div>
+                            <div class="keypad-cell">
+                                <div>3</div>
+                                <div class="keypad-letter-container">
+                                    <div class="keypad-letter">D</div>
+                                    <div class="keypad-letter">E</div>
+                                    <div class="keypad-letter">F</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="keypad-row">
+                            <div class="keypad-cell">
+                                <div>4</div>
+                                <div class="keypad-letter-container">
+                                    <div class="keypad-letter">G</div>
+                                    <div class="keypad-letter">H</div>
+                                    <div class="keypad-letter">I</div>
+                                </div>
+                            </div>
+                            <div class="keypad-cell">
+                                <div>5</div>
+                                <div class="keypad-letter-container">
+                                    <div class="keypad-letter">J</div>
+                                    <div class="keypad-letter">K</div>
+                                    <div class="keypad-letter">L</div>
+                                </div>
+                            </div>
+                            <div class="keypad-cell">
+                                <div>6</div>
+                                <div class="keypad-letter-container">
+                                    <div class="keypad-letter">M</div>
+                                    <div class="keypad-letter">N</div>
+                                    <div class="keypad-letter">O</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="keypad-row">
+                            <div class="keypad-cell">
+                                <div>7</div>
+                                <div class="keypad-letter-container">
+                                    <div class="keypad-letter">P</div>
+                                    <div class="keypad-letter">Q</div>
+                                    <div class="keypad-letter">R</div>
+                                    <div class="keypad-letter">S</div>
+                                </div>
+                            </div>
+                            <div class="keypad-cell">
+                                <div>8</div>
+                                <div class="keypad-letter-container">
+                                    <div class="keypad-letter">T</div>
+                                    <div class="keypad-letter">U</div>
+                                    <div class="keypad-letter">V</div>
+                                </div>
+                            </div>
+                            <div class="keypad-cell">
+                                <div>9</div>
+                                <div class="keypad-letter-container">
+                                    <div class="keypad-letter">W</div>
+                                    <div class="keypad-letter">X</div>
+                                    <div class="keypad-letter">Y</div>
+                                    <div class="keypad-letter">Z</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="keypad-row">
+                            <div class="keypad-cell">*</div>
+                            <div class="keypad-cell">0</div>
+                            <div class="keypad-cell">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="number-mnemonic" class="rowspan">
+                    <h2 id="phonenumberkeypad">Check for Mnemonics</h2>
+                    <p>This finds all the English mnemonics of an inputted number when mapped to the telephone keypad.</p>
+                    <h3>Instructions</h3>
+                    <p>Type in a phone number (or even any number) and click Check.</p>
+                    <label for="phonenumber"><input type="number" id="phonenumber"></label>
+                    <button onclick="findnumber(document.getElementById('phonenumber').value)">Check</button>
+                    <p id="aftertext"></p>
+                </div>
+                <div id="mnemonic-number" class="rowspan">
+                    <h2 id="telephonekeypad">Find Telephone Numbers from Mnemonics</h2>
+                    <input class="tointeract" id="numdigits" type="text">
+                    <button class="tointeract" onclick="generate(document.getElementById('numdigits').value)">Generate</button>
+                    <p id="generated"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

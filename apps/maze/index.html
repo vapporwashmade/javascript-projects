@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Maze Solver</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <!-- Add your site or application content here -->
+  <label for="numrows">Rows: </label>
+  <input type="number" id="numrows" class="gridsize" min="3">
+  <label for="numcols">Columns: </label>
+  <input type="number" id="numcols" class="gridsize" min="3">
+  <button type="button" onclick="createTable(document.getElementById('numrows').value, document.getElementById('numcols').value)">Create Grid!</button><br>
+  <div>
+    <input type="radio" name="change" id="startsquare" value="Set Start Square" checked>
+    <label for="startsquare">Set Start Square</label>
+    <input type="radio" name="change" id="finishsquare" value="Set Finish Square">
+    <label for="finishsquare">Set Finish Square</label>
+    <input type="radio" name="change" id="setwalls" value="Set Walls">
+    <label for="setwalls">Set Walls</label>
+  </div>
+  <button onclick="solveMazeWrapper(document.getElementsByClassName('start')[0])">Start</button>
+  <table class="maze-container" id="maze">
+  </table>
+  <p id="unsolvable"></p>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
