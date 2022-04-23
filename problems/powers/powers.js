@@ -1,6 +1,6 @@
 // var n1 = 1000000000000000000000000000;
-var n1 = Number(10000000000000000000000);
-var n2 = 5;
+var n1 = Number(2);
+var n2 = 23;
 var a1 = [];
 var a2 = [];
 for (var i = 0; n1 > 0; i++) {
@@ -77,5 +77,5 @@ function exponentiation(baseArray, exponent) {
 	}
 	return x;
 }
-var x = exponentiation([1,5,1,7], 1000);
+var x = exponentiation([2], 23);
 console.log(x.join('') + ' with ' + x.length + ' digits.');
