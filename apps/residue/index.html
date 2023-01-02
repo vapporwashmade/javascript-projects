@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Residue Number Systems</title>
+  </head>
+  <body>
+    <p>To create a new residue number system, enter your moduli in the input box below, click "Add Modulus" after each one, and click "Done" when all moduli are added.
+      Then, click on "Create New RNS".</p>
+    <label for="addmod">Modulus: </label>
+    <input type="number" name="Modulus" id="addmod" value="" on><br>
+    <button type="button" name="button" id="addbtn" onclick="addModulusHandler()">Add Modulus</button><br>
+    <button type="submit" name="new-system" onclick="createRNS()">Create New RNS</button>
+    <p id="moduli"></p>
+    <label for="getrep">Number: </label>
+    <input type="number" id="getrep" value="" oninput="displayReps()"><br>
+    <button type="button" name="button" onclick="displayReps()">Get RNS and Mixed-Radix Representations</button>
+    <div class="number-cont">
+      <span>RNS Representation: </span>
+      <p id="rnsrep"></p>
+    </div>
+    <div class="number-cont">
+      <span>Mixed-Radix Representation: </span>
+      <p id="mrrrep"></p>
+    </div>
+    <div class="number-cont">
+      <span>Overflow occured: </span>
+      <span id="overflow"></span>
+    </div>
+    <script type="text/javascript" src="representations.js"></script>
+  </body>
+</html>
