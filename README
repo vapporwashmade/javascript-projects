@@ -6,6 +6,7 @@ The structure is simple:
       --- apps (contains small JS apps driven by HTML)
       --- problems (any and all problems of interest using techniques like iteration, recursion, divide and conquer etc.)
       --- misc (anything else)
+      --- sicp (all my programs and problems from SICP JS)
  
 The programs should be runnable all the time. Automated test for the programs will be soon written. Please give them a try and create issues if you like!
 
