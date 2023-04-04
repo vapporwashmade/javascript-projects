@@ -12,10 +12,12 @@ function f(n) {
 
 // Iterative implementation of function f(n)
 function f_iter(n) {
-    return 
-}
-
-// Direct calculation of f(n)
-function f_direct(n) {
-    
+    function f_int(r1, r2, r3, c) {
+        return c === n
+        ? r1
+        : f_int(r1 + 2 * r2 + 3 * r3, r1, r2, c + 1);
+    }
+    return n < 3
+    ? n
+    : f_int(2, 1, 0, 2);
 }
